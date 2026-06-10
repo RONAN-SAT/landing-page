@@ -1,8 +1,10 @@
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
-import { FacebookIcon } from "./icons";
+import { FacebookIcon, ThreadsIcon, TelegramIcon } from "./icons";
 
 const FACEBOOK_URL = "https://www.facebook.com/ronansat";
+const THREADS_URL = "https://www.threads.com/@ronan_sat";
+const TELEGRAM_URL = "https://t.me/ronansat";
 
 export default function SiteFooter() {
   return (
@@ -32,6 +34,7 @@ export default function SiteFooter() {
             <h4 className="font-bold uppercase tracking-wider text-gray-500 mb-4">Learn</h4>
             <ul className="space-y-3 font-medium text-lg">
               <li><Link href="/classes" className="hover:text-[#FF82A9] transition-colors">Classes</Link></li>
+              <li><Link href="/classes/da-nang" lang="vi" className="hover:text-[#FF82A9] transition-colors">Lớp học Đà Nẵng</Link></li>
               <li>
                 <Link
                   href={FACEBOOK_URL}
@@ -64,6 +67,24 @@ export default function SiteFooter() {
             className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
           >
             <FacebookIcon className="w-5 h-5" />
+          </Link>
+          <Link
+            href={THREADS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ronan SAT on Threads"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+          >
+            <ThreadsIcon className="w-5 h-5" />
+          </Link>
+          <Link
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ronan SAT on Telegram"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+          >
+            <TelegramIcon className="w-5 h-5" />
           </Link>
         </div>
       </div>

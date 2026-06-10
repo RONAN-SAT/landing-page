@@ -70,6 +70,15 @@ const ClassesHero = () => {
             </div>
           </Link>
         </div>
+
+        <Link
+          href="/classes/da-nang"
+          lang="vi"
+          hrefLang="vi"
+          className="mt-8 inline-flex items-center gap-2 font-bold text-sm hover:underline decoration-2 underline-offset-4"
+        >
+          🇻🇳 Lớp học SAT cho học sinh Đà Nẵng (Tiếng Việt)
+        </Link>
       </div>
     </section>
   );

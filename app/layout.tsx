@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Be_Vietnam_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
 const displayFont = Bricolage_Grotesque({
   variable: "--font-display",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const bodyFont = DM_Sans({
+const bodyFont = Be_Vietnam_Pro({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
