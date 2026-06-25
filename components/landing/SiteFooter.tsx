@@ -35,6 +35,7 @@ export default function SiteFooter() {
             <ul className="space-y-3 font-medium text-lg">
               <li><Link href="/classes" className="hover:text-[#FF82A9] transition-colors">Classes</Link></li>
               <li><Link href="/classes/da-nang" lang="vi" className="hover:text-[#FF82A9] transition-colors">Lớp học Đà Nẵng</Link></li>
+              <li><Link href="/referral" className="hover:text-[#FF82A9] transition-colors">Referral Programme</Link></li>
               <li>
                 <Link
                   href={FACEBOOK_URL}

@@ -100,6 +100,13 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
           </Link>
         ))}
         <Link
+          href="/referral"
+          onClick={onClose}
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e]"
+        >
+          Referral
+        </Link>
+        <Link
           href="https://learn.ronansat.com/auth"
           onClick={onClose}
           className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors"
@@ -137,6 +144,12 @@ export default function SiteNav() {
             Home
           </Link>
           <ClassesDropdown />
+          <Link
+            href="/referral"
+            className="hover:underline decoration-2 underline-offset-4"
+          >
+            Referral
+          </Link>
         </div>
         <div className="hidden md:flex gap-4 items-center">
           <Link
