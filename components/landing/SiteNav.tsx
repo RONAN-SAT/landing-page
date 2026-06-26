@@ -107,6 +107,13 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
           Referral
         </Link>
         <Link
+          href="/socials"
+          onClick={onClose}
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e]"
+        >
+          Socials
+        </Link>
+        <Link
           href="https://learn.ronansat.com/auth"
           onClick={onClose}
           className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors"
@@ -150,6 +157,12 @@ export default function SiteNav() {
           >
             Referral
           </Link>
+          <Link
+            href="/socials"
+            className="hover:underline decoration-2 underline-offset-4"
+          >
+            Socials
+          </Link>
         </div>
         <div className="hidden md:flex gap-4 items-center">
           <Link
@@ -160,7 +173,7 @@ export default function SiteNav() {
           </Link>
           <Link
             href="https://learn.ronansat.com/auth"
-            className="bg-[#0f0e0e] text-[#f4efe6] px-5 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform brutal-shadow-sm border-2 border-[#0f0e0e]"
+            className="bg-[#0f0e0e] text-[#f4efe6] px-5 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform border-2 border-[#0f0e0e]"
           >
             Start Free
           </Link>

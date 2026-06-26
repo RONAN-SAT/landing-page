@@ -1,10 +1,18 @@
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
-import { FacebookIcon, ThreadsIcon, TelegramIcon } from "./icons";
+import {
+  FacebookIcon,
+  ThreadsIcon,
+  TelegramIcon,
+  InstagramIcon,
+  ZaloIcon,
+} from "./icons";
 
 const FACEBOOK_URL = "https://www.facebook.com/ronansat";
 const THREADS_URL = "https://www.threads.com/@ronan_sat";
 const TELEGRAM_URL = "https://t.me/ronansat";
+const INSTAGRAM_URL = "https://www.instagram.com/ronan_sat";
+const ZALO_URL = "https://zalo.me/g/a1zqo9jyhlppeh3u64dr";
 
 export default function SiteFooter() {
   return (
@@ -36,16 +44,7 @@ export default function SiteFooter() {
               <li><Link href="/classes" className="hover:text-[#FF82A9] transition-colors">Classes</Link></li>
               <li><Link href="/classes/da-nang" lang="vi" className="hover:text-[#FF82A9] transition-colors">Lớp học Đà Nẵng</Link></li>
               <li><Link href="/referral" className="hover:text-[#FF82A9] transition-colors">Referral Programme</Link></li>
-              <li>
-                <Link
-                  href={FACEBOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#FF82A9] transition-colors"
-                >
-                  Facebook
-                </Link>
-              </li>
+              <li><Link href="/socials" className="hover:text-[#FF82A9] transition-colors">Socials</Link></li>
             </ul>
           </div>
           <div>
@@ -68,6 +67,24 @@ export default function SiteFooter() {
             className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
           >
             <FacebookIcon className="w-5 h-5" />
+          </Link>
+          <Link
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ronan SAT on Instagram"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+          >
+            <InstagramIcon className="w-5 h-5" />
+          </Link>
+          <Link
+            href={ZALO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ronan SAT Zalo group"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+          >
+            <ZaloIcon className="w-5 h-5" />
           </Link>
           <Link
             href={THREADS_URL}
