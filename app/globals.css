@@ -51,6 +51,14 @@
     -webkit-text-stroke: 1.5px #0f0e0e;
     color: transparent;
   }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .marquee-container {

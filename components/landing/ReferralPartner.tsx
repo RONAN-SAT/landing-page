@@ -18,6 +18,15 @@ import {
   Building2,
   Mail,
   ShieldCheck,
+  CalendarDays,
+  GraduationCap,
+  Target,
+  Trophy,
+  Users,
+  LineChart,
+  MonitorPlay,
+  Clock,
+  Heart,
 } from "lucide-react";
 
 const FACEBOOK_URL = "https://www.facebook.com/ronansat";
@@ -61,9 +70,8 @@ const PartnerHero = () => {
           A tiered partnership built for organisations. Commission scales from{" "}
           <span className="font-bold">1,000,000 VND</span> per student up to{" "}
           <span className="font-bold">2,000,000 VND</span>, with a total revenue
-          share of up to{" "}
-          <span className="font-bold">145,000,000 VND</span> per partnership.
-          Paid in cash, immediately on sign-up.
+          share of up to <span className="font-bold">145,000,000 VND</span> per
+          partnership. Paid in cash, immediately on sign-up.
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
@@ -366,8 +374,8 @@ const TermsNote = () => {
           <li className="flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-[#0f0e0e] mt-1 shrink-0" />
             Standard tiers cap at a combined 145,000,000 VND per partnership.
-            Beyond this cap, support for the partnership concludes unless you are
-            on an Enterprise agreement.
+            Beyond this cap, support for the partnership concludes unless you
+            are on an Enterprise agreement.
           </li>
           <li className="flex items-start gap-3">
             <Building2 className="w-5 h-5 text-[#FF82A9] mt-1 shrink-0" />
@@ -431,12 +439,263 @@ const CTASection = () => {
   );
 };
 
+const achievements = [
+  {
+    icon: Users,
+    color: "#D9FF42",
+    value: "300+",
+    label: "Students coached",
+    note: "Over the last 3 years to their target scores.",
+  },
+  {
+    icon: Target,
+    color: "#FF82A9",
+    value: "90%+",
+    label: "Reach 1500+",
+    note: "The overwhelming majority hit a top-tier score.",
+  },
+  {
+    icon: Trophy,
+    color: "#4287FF",
+    value: "20%+",
+    label: "Reach 1550+",
+    note: "One in five lands in elite-admission territory.",
+  },
+  {
+    icon: CalendarDays,
+    color: "#FF6B35",
+    value: "2023",
+    label: "Established",
+    note: "Built and battle-tested since Summer 2023.",
+  },
+];
+
+const AchievementsBand = () => {
+  return (
+    <section className="px-6 -mt-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {achievements.map((a, i) => (
+          <motion.div
+            key={a.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className="bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-6 text-center flex flex-col items-center"
+          >
+            <div
+              className="border-2 border-[#0f0e0e] p-2.5 rounded-full inline-flex brutal-shadow-sm mb-4"
+              style={{ backgroundColor: a.color }}
+            >
+              <a.icon className="w-5 h-5 text-[#0f0e0e]" />
+            </div>
+            <div className="font-display font-black text-4xl md:text-5xl tracking-tight">
+              {a.value}
+            </div>
+            <div className="mt-1 font-bold text-sm uppercase tracking-wide text-[#0f0e0e]/70">
+              {a.label}
+            </div>
+            <div className="mt-2 text-xs font-medium text-[#0f0e0e]/55">
+              {a.note}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const sellingPoints = [
+  {
+    icon: Award,
+    color: "#D9FF42",
+    title: "Perfect-scorer teachers",
+    body: "Every class is led by a perfect scorer. Highly trained, well known, and trusted by parents and students alike. Your referrals learn from the very top.",
+  },
+  {
+    icon: MonitorPlay,
+    color: "#4287FF",
+    title: "Online-first, hybrid courses",
+    body: "Live online meeting classes powered by Ronan SAT's latest technology, with offline classes arriving later. Authentic full-length exams that replicate the real Digital SAT, plus targeted sectional practice.",
+  },
+  {
+    icon: LineChart,
+    color: "#FF82A9",
+    title: "Data-driven, personalised",
+    body: "Advanced analytics track every student by topic, difficulty, and question type. Step-by-step explanations for every mistake and an AI tutor for follow-up questions, so the plan adapts to each student.",
+  },
+  {
+    icon: Clock,
+    color: "#FF6B35",
+    title: "Available 24/7",
+    body: "Teachers are hard-working, diligent, and ready to guide students every step of the way, readily available around the clock for the full length of the course.",
+  },
+];
+
+const AboutSection = () => {
+  return (
+    <section className="py-24 px-6 max-w-7xl mx-auto">
+      <div className="max-w-3xl">
+        <div className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
+          <GraduationCap className="w-4 h-4" />
+          <span className="font-bold text-sm uppercase tracking-wider">
+            Who you&apos;re referring to
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-6">
+          Meet{" "}
+          <span
+            className="text-[#FF82A9] text-outline"
+            style={{ WebkitTextStroke: "2px #0f0e0e" }}
+          >
+            Ronan SAT.
+          </span>
+        </h2>
+        <p className="text-lg md:text-xl font-medium text-[#0f0e0e]/75">
+          Established in the summer of 2023, Ronan SAT is an online-first SAT
+          study suite and live class programme. In three years we&apos;ve
+          coached 300+ students to their target scores, with more than 90%
+          reaching 1500+ and over 20% reaching 1550+. When you refer a student,
+          you&apos;re sending them to a proven programme that parents and
+          students trust.
+        </p>
+      </div>
+
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {sellingPoints.map((s, i) => (
+          <motion.div
+            key={s.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 flex flex-col"
+          >
+            <div
+              className="border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6 w-fit"
+              style={{ backgroundColor: s.color }}
+            >
+              <s.icon className="w-6 h-6 text-[#0f0e0e]" />
+            </div>
+            <h3 className="text-2xl font-display font-black uppercase tracking-tight">
+              {s.title}
+            </h3>
+            <p className="mt-4 text-base font-medium text-gray-700">{s.body}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Use canonical /ronansat/posts/<pfbid> permalinks or /share/p/<id>/ share
+// links here. Plain /photo/?fbid=... links do NOT embed reliably — resolve
+// each share link to its post permalink before adding it.
+const hallOfFamePosts = [
+  "https://www.facebook.com/ronansat/posts/pfbid021ehkjWXJVih8dd7XBX2ThVmavmbHwcCzNXSCHMaVUmfXhLsErvFDTCmGKPV1ASppl",
+  "https://www.facebook.com/ronansat/posts/pfbid0Jq8vusdANNmRCMdLLLwgTZouT1dtWzZnCM5sx3FH45Tyc6JeZhAc6WgKKzi7HjpTl",
+  "https://www.facebook.com/ronansat/posts/pfbid0KZ5FuhScsCtubBA1LergUaQJdngkFxJEUbmEZfe8ZkvoLe5SB521uGR8yvSMHZF1l",
+  "https://www.facebook.com/ronansat/posts/pfbid0hdLwxoqfyqV97TXYxGdequaywoqhyBHm344csXVQyvGMgdqrrLGifFyNrV14SXjTl",
+];
+
+const HallOfFame = () => {
+  return (
+    <section
+      id="hall-of-fame"
+      className="py-24 bg-[#0f0e0e] text-[#f4efe6]"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="inline-flex items-center gap-2 bg-[#D9FF42] text-[#0f0e0e] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
+          <Trophy className="w-4 h-4" />
+          <span className="font-bold text-sm uppercase tracking-wider">
+            Real results
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-4">
+          Hall of <span className="text-[#D9FF42]">fame.</span>
+        </h2>
+        <p className="text-lg md:text-xl font-medium text-gray-300 mb-16 max-w-2xl">
+          Straight from our Facebook. Real students, real score gains, these are
+          the results your referrals can expect.
+        </p>
+      </div>
+      <div className="flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory px-[max(1.5rem,calc((100vw_-_80rem)/2_+_1.5rem))] scroll-pl-[max(1.5rem,calc((100vw_-_80rem)/2_+_1.5rem))]">
+        {hallOfFamePosts.map((url, i) => (
+          <motion.div
+            key={url}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className="bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow overflow-hidden flex justify-center w-[358px] shrink-0 snap-start"
+          >
+            <iframe
+              title={`Ronan SAT student achievement ${i + 1}`}
+              src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(
+                url,
+              )}&show_text=true&width=350`}
+              width={350}
+              height={500}
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="no"
+              frameBorder={0}
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+            />
+          </motion.div>
+        ))}
+      </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="mt-10 text-sm font-medium text-gray-500">
+          Visit{" "}
+          <Link
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#D9FF42] hover:underline"
+          >
+            facebook.com/ronansat
+          </Link>
+          . To see the full list.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+const AssuranceNote = () => {
+  return (
+    <section className="py-8 px-6 max-w-5xl mx-auto">
+      <div className="bg-[#D9FF42] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start">
+        <div className="border-2 border-[#0f0e0e] p-4 rounded-full inline-flex brutal-shadow-sm shrink-0 bg-white">
+          <Heart className="w-7 h-7 text-[#0f0e0e]" />
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-4xl font-display font-black uppercase tracking-tight">
+            Refer with confidence
+          </h2>
+          <p className="mt-4 text-base md:text-lg font-medium text-[#0f0e0e]/80">
+            Reputable teachers, a proven track record, and a relentless focus on
+            student satisfaction. Every student you send our way is guided every
+            step of the way, so your reputation is safe with ours.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function ReferralPartner() {
   return (
     <div className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden">
       <SiteNav />
       <main>
         <PartnerHero />
+        <AchievementsBand />
+        <AboutSection />
+        <HallOfFame />
+        <AssuranceNote />
         <TiersSection />
         <EnterpriseSection />
         <HowItWorks />
