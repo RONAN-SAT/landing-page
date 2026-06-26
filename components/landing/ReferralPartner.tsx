@@ -101,11 +101,11 @@ const tiers = [
     tier: "Tier 1",
     color: "#D9FF42",
     perStudent: "1,000,000 VND",
-    range: "First 40 students",
-    cap: "40,000,000 VND",
+    range: "First 80 students",
+    cap: "80,000,000 VND",
     points: [
       "1,000,000 VND for every referred student",
-      "Applies to your first 40 students",
+      "Applies to your first 80 students",
       "Paid in full, immediately on sign-up",
     ],
   },
@@ -115,11 +115,11 @@ const tiers = [
     tier: "Tier 2",
     color: "#FF82A9",
     perStudent: "1,500,000 VND",
-    range: "Students 41 – 70",
-    cap: "45,000,000 VND",
+    range: "Students 81 – 140",
+    cap: "90,000,000 VND",
     points: [
       "1,500,000 VND per student",
-      "Unlocks on the next 30 students",
+      "Unlocks on the next 60 students",
       "Paid in full, immediately on sign-up",
     ],
   },
@@ -129,8 +129,8 @@ const tiers = [
     tier: "Tier 3",
     color: "#4287FF",
     perStudent: "2,000,000 VND",
-    range: "Students 71 – 100",
-    cap: "60,000,000 VND",
+    range: "Students 141 – 160",
+    cap: "40,000,000 VND",
     points: [
       "2,000,000 VND per student who studies 2+ months",
       "1,500,000 VND on the first paid month",
@@ -153,7 +153,7 @@ const TiersSection = () => {
       </h2>
       <p className="text-lg md:text-xl font-medium text-[#0f0e0e]/70 mb-16 max-w-2xl">
         Commission grows as you refer more students. Each tier stacks on top of
-        the last, up to a combined 145,000,000 VND per partnership.
+        the last, up to a combined 210,000,000 VND per partnership.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {tiers.map((t, i) => (
@@ -224,7 +224,7 @@ const TiersSection = () => {
           </p>
         </div>
         <div className="font-display font-black text-5xl md:text-6xl tracking-tighter text-[#D9FF42] whitespace-nowrap">
-          145,000,000 VND
+          210,000,000 VND
         </div>
       </motion.div>
     </section>
@@ -370,7 +370,7 @@ const TermsNote = () => {
           </li>
           <li className="flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-[#0f0e0e] mt-1 shrink-0" />
-            Standard tiers cap at a combined 145,000,000 VND per partnership.
+            Standard tiers cap at a combined 210,000,000 VND per partnership.
             Beyond this cap, support for the partnership concludes unless you
             are on an Enterprise agreement.
           </li>
