@@ -61,7 +61,7 @@ const PartnerHero = () => {
           <br />
           <span className="relative inline-block mt-2">
             <span className="relative z-10 bg-[#FF82A9] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
-              earn up to 145M.
+              earn up to 210M.
             </span>
           </span>
         </h1>
