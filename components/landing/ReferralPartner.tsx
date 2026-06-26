@@ -67,11 +67,8 @@ const PartnerHero = () => {
         </h1>
 
         <p className="mt-10 text-xl md:text-2xl max-w-2xl mx-auto font-medium text-[#0f0e0e]/80 text-balance">
-          A tiered partnership built for organisations. Commission scales from{" "}
-          <span className="font-bold">1,000,000 VND</span> per student up to{" "}
-          <span className="font-bold">2,000,000 VND</span>, with a total revenue
-          share of up to <span className="font-bold">145,000,000 VND</span> per
-          partnership. Paid in cash, immediately on sign-up.
+          A tiered partnership built for organisations. Paid in cash,
+          immediately on sign-up.
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
@@ -600,10 +597,7 @@ const hallOfFamePosts = [
 
 const HallOfFame = () => {
   return (
-    <section
-      id="hall-of-fame"
-      className="py-24 bg-[#0f0e0e] text-[#f4efe6]"
-    >
+    <section id="hall-of-fame" className="py-24 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="inline-flex items-center gap-2 bg-[#D9FF42] text-[#0f0e0e] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
           <Trophy className="w-4 h-4" />
