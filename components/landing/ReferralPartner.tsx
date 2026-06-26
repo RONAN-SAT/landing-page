@@ -364,7 +364,7 @@ const TermsNote = () => {
             months.
           </li>
           <li className="flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-[#D9FF42] mt-1 shrink-0" />
+            <ShieldCheck className="w-5 h-5 text-[#0f0e0e] mt-1 shrink-0" />
             Standard tiers cap at a combined 145,000,000 VND per partnership.
             Beyond this cap, support for the partnership concludes unless you are
             on an Enterprise agreement.
