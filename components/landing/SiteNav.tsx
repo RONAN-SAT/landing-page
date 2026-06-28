@@ -125,14 +125,14 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-export default function SiteNav() {
+export default function SiteNav({ withBanner = false }: { withBanner?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 p-4 pointer-events-none"
+      className={`fixed left-0 right-0 z-50 p-4 pointer-events-none ${withBanner ? "top-10" : "top-0"}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center bg-[#f4efe6]/90 backdrop-blur-md border-2 border-[#0f0e0e] rounded-2xl px-6 py-4 brutal-shadow-sm pointer-events-auto">
         <Link href="/" aria-label="Ronan SAT home">

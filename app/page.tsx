@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import BrandLogo from "@/components/BrandLogo";
 import SiteNav from "@/components/landing/SiteNav";
 import SiteFooter from "@/components/landing/SiteFooter";
+import ReferralBanner from "@/components/landing/ReferralBanner";
 import { StarIcon } from "@/components/landing/icons";
 import {
   ArrowRight,
@@ -24,7 +25,7 @@ import {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-grid-pattern">
+    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-12 overflow-hidden bg-grid-pattern">
       <motion.div
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -435,7 +436,8 @@ const CTASection = () => {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden">
-      <SiteNav />
+      <ReferralBanner />
+      <SiteNav withBanner />
       <main>
         <HeroSection />
         <MarqueeSection />
