@@ -71,14 +71,24 @@ const ClassesHero = () => {
           </Link>
         </div>
 
-        <Link
-          href="/classes/da-nang"
-          lang="vi"
-          hrefLang="vi"
-          className="mt-8 inline-flex items-center gap-2 font-bold text-sm hover:underline decoration-2 underline-offset-4"
-        >
-          🇻🇳 Lớp học SAT cho học sinh Đà Nẵng (Tiếng Việt)
-        </Link>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3">
+          <Link
+            href="/classes/intensive"
+            lang="vi"
+            hrefLang="vi"
+            className="inline-flex items-center gap-2 font-bold text-sm hover:underline decoration-2 underline-offset-4"
+          >
+            🇻🇳 Lớp SAT Intensive — luyện đề chuyên sâu (Tiếng Việt)
+          </Link>
+          <Link
+            href="/classes/da-nang"
+            lang="vi"
+            hrefLang="vi"
+            className="inline-flex items-center gap-2 font-bold text-sm hover:underline decoration-2 underline-offset-4"
+          >
+            🇻🇳 Lớp học SAT cho học sinh Đà Nẵng (Tiếng Việt)
+          </Link>
+        </div>
       </div>
     </section>
   );

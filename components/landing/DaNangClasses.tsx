@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SiteNav from "@/components/landing/SiteNav";
 import SiteFooter from "@/components/landing/SiteFooter";
@@ -30,7 +31,7 @@ const REGISTER_URL =
   "https://learn.ronansat.com/forms/frm_2cb1a99f4680420f83fb2862cdc34031";
 const TEACHER_FB_URL = "https://www.facebook.com/TVMDrh";
 const SEATS_TOTAL = 15;
-const SEATS_TAKEN = 6;
+const SEATS_TAKEN = 8;
 
 const DaNangHero = () => {
   return (
@@ -94,7 +95,7 @@ const DaNangHero = () => {
 
 const stats = [
   { value: "1590", label: "Điểm SAT của giáo viên" },
-  { value: "6000+", label: "Câu hỏi trong ngân hàng đề" },
+  { value: "10000+", label: "Câu hỏi trong ngân hàng đề" },
   { value: `${SEATS_TAKEN}/${SEATS_TOTAL}`, label: "Sĩ số lớp hiện tại" },
 ];
 
@@ -450,7 +451,7 @@ const RealExamSection = () => {
   const items = [
     {
       icon: Database,
-      title: "6000+ câu hỏi",
+      title: "10000+ câu hỏi",
       body: "Ngân hàng đề khổng lồ bám sát cấu trúc SAT thật, đủ để luyện từ nền tảng đến nâng cao.",
     },
     {
@@ -525,6 +526,37 @@ const TeacherSection = () => {
               Trực tiếp xây dựng lộ trình và đứng lớp, đảm bảo mỗi học viên được
               theo sát đến tận điểm số mục tiêu.
             </p>
+            <div className="mt-6 flex flex-col sm:flex-row items-start gap-5 bg-[#f4efe6] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-5">
+              <Link
+                href="/teachers/tran-vu-manh-duc/vinuni-scholarship.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block shrink-0"
+              >
+                <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-1.5 translate-y-1.5 transition-transform group-hover:translate-x-2.5 group-hover:translate-y-2.5"></div>
+                <Image
+                  src="/teachers/tran-vu-manh-duc/vinuni-scholarship.png"
+                  alt="Thư mời nhập học kèm học bổng 100% học phí VinUni của Trần Vũ Mạnh Đức"
+                  width={160}
+                  height={226}
+                  className="relative w-32 sm:w-40 h-auto border-4 border-[#0f0e0e] rounded-2xl object-cover transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1"
+                />
+              </Link>
+              <div>
+                <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white border-2 border-[#0f0e0e] px-3 py-1 rounded-full brutal-shadow-sm font-bold text-xs uppercase tracking-wider">
+                  <Trophy className="w-4 h-4" />
+                  Học bổng
+                </div>
+                <h3 className="mt-3 text-2xl font-display font-black uppercase tracking-tight leading-tight">
+                  Học bổng 100% học phí VinUni
+                </h3>
+                <p className="mt-2 text-sm md:text-base font-medium text-gray-700">
+                  Trúng tuyển ngành Khoa học Máy tính (College of Engineering &
+                  Computer Science) kèm học bổng tài năng 100% học phí năm học
+                  2023–2024. Nhấn vào ảnh để xem thư mời gốc.
+                </p>
+              </div>
+            </div>
             <Link
               href={TEACHER_FB_URL}
               target="_blank"

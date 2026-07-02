@@ -9,6 +9,12 @@ import BrandLogo from "@/components/BrandLogo";
 const classesLinks = [
   { href: "/classes", label: "Classes", sub: "Live SAT classes in English" },
   {
+    href: "/classes/intensive",
+    label: "Lớp SAT Intensive",
+    sub: "Luyện đề chuyên sâu, chữa liên tục",
+    lang: "vi",
+  },
+  {
     href: "/classes/da-nang",
     label: "Lớp học Đà Nẵng",
     sub: "Lớp luyện thi SAT tại Đà Nẵng",
