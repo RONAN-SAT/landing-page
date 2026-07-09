@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SiteNav from "@/components/landing/SiteNav";
 import SiteFooter from "@/components/landing/SiteFooter";
@@ -27,6 +28,7 @@ import {
   MonitorPlay,
   Clock,
   Heart,
+  ArrowUpRight,
 } from "lucide-react";
 
 const FACEBOOK_URL = "https://www.facebook.com/ronansat";
@@ -585,14 +587,28 @@ const AboutSection = () => {
   );
 };
 
-// Use canonical /ronansat/posts/<pfbid> permalinks or /share/p/<id>/ share
-// links here. Plain /photo/?fbid=... links do NOT embed reliably — resolve
-// each share link to its post permalink before adding it.
+// Each entry pairs a locally hosted screenshot of the Facebook post with the
+// canonical post permalink. The image is what renders (no brittle FB embed);
+// clicking it opens the real post on Facebook in a new tab. Screenshots vary
+// slightly in width, so each renders inside a fixed 3:4 box with object-cover
+// to keep every card the same height.
 const hallOfFamePosts = [
-  "https://www.facebook.com/ronansat/posts/pfbid021ehkjWXJVih8dd7XBX2ThVmavmbHwcCzNXSCHMaVUmfXhLsErvFDTCmGKPV1ASppl",
-  "https://www.facebook.com/ronansat/posts/pfbid0Jq8vusdANNmRCMdLLLwgTZouT1dtWzZnCM5sx3FH45Tyc6JeZhAc6WgKKzi7HjpTl",
-  "https://www.facebook.com/ronansat/posts/pfbid0KZ5FuhScsCtubBA1LergUaQJdngkFxJEUbmEZfe8ZkvoLe5SB521uGR8yvSMHZF1l",
-  "https://www.facebook.com/ronansat/posts/pfbid0hdLwxoqfyqV97TXYxGdequaywoqhyBHm344csXVQyvGMgdqrrLGifFyNrV14SXjTl",
+  {
+    image: "/hall-of-fame/1.jpg",
+    href: "https://www.facebook.com/ronansat/posts/pfbid021ehkjWXJVih8dd7XBX2ThVmavmbHwcCzNXSCHMaVUmfXhLsErvFDTCmGKPV1ASppl",
+  },
+  {
+    image: "/hall-of-fame/2.jpg",
+    href: "https://www.facebook.com/ronansat/posts/pfbid0Jq8vusdANNmRCMdLLLwgTZouT1dtWzZnCM5sx3FH45Tyc6JeZhAc6WgKKzi7HjpTl",
+  },
+  {
+    image: "/hall-of-fame/3.jpg",
+    href: "https://www.facebook.com/ronansat/posts/pfbid0KZ5FuhScsCtubBA1LergUaQJdngkFxJEUbmEZfe8ZkvoLe5SB521uGR8yvSMHZF1l",
+  },
+  {
+    image: "/hall-of-fame/4.jpg",
+    href: "https://www.facebook.com/ronansat/posts/pfbid0hdLwxoqfyqV97TXYxGdequaywoqhyBHm344csXVQyvGMgdqrrLGifFyNrV14SXjTl",
+  },
 ];
 
 const HallOfFame = () => {
@@ -614,29 +630,41 @@ const HallOfFame = () => {
         </p>
       </div>
       <div className="flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory px-[max(1.5rem,calc((100vw_-_80rem)/2_+_1.5rem))] scroll-pl-[max(1.5rem,calc((100vw_-_80rem)/2_+_1.5rem))]">
-        {hallOfFamePosts.map((url, i) => (
+        {hallOfFamePosts.map((post, i) => (
           <motion.div
-            key={url}
+            key={post.href}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow overflow-hidden flex justify-center w-[358px] shrink-0 snap-start"
+            className="w-[358px] shrink-0 snap-start"
           >
-            <iframe
-              title={`Ronan SAT student achievement ${i + 1}`}
-              src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(
-                url,
-              )}&show_text=true&width=350`}
-              width={350}
-              height={500}
-              style={{ border: "none", overflow: "hidden" }}
-              scrolling="no"
-              frameBorder={0}
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              loading="lazy"
-            />
+            <Link
+              href={post.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block"
+            >
+              <div className="absolute inset-0 bg-[#0f0e0e] rounded-3xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3" />
+              <div className="relative bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow overflow-hidden transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image
+                    src={post.image}
+                    alt={`Ronan SAT student achievement ${i + 1}`}
+                    fill
+                    sizes="358px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 border-t-4 border-[#0f0e0e] px-4 py-3">
+                  <span className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wide text-[#0f0e0e]">
+                    <FacebookIcon className="w-4 h-4" />
+                    View on Facebook
+                  </span>
+                  <ArrowUpRight className="w-5 h-5 text-[#0f0e0e] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>
