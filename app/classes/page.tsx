@@ -21,9 +21,9 @@ const ClassesHero = () => {
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, 6, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#4287FF] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
+        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#DBE8FB] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
       >
-        <GraduationCap className="w-12 h-12 text-white" />
+        <GraduationCap className="w-12 h-12 text-[#0f0e0e]" />
       </motion.div>
 
       <div className="max-w-5xl mx-auto text-center">
@@ -31,7 +31,7 @@ const ClassesHero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", bounce: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
+          className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
         >
           <Award className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">Taught by a perfect scorer</span>
@@ -40,7 +40,7 @@ const ClassesHero = () => {
         <h1 className="text-[3.25rem] md:text-[6rem] leading-[0.9] font-display font-black tracking-tighter uppercase text-balance">
           Learn from a<br />
           <span className="relative inline-block mt-2">
-            <span className="relative z-10 bg-[#FF82A9] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
+            <span className="relative z-10 bg-[#FBDAE3] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
               perfect scorer.
             </span>
           </span>
@@ -58,7 +58,7 @@ const ClassesHero = () => {
             className="group relative w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-            <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+            <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
               <FacebookIcon className="w-6 h-6" />
               Message Us to Enroll
             </div>
@@ -125,19 +125,19 @@ const StatsBand = () => {
 const benefits = [
   {
     icon: CalendarDays,
-    color: "#FF6B35",
+    color: "#FBE1D3",
     title: "Weekly Live Classes",
     body: "Scheduled sessions with a real instructor. Walk through hard questions, learn the strategies, and never drift off track.",
   },
   {
     icon: LineChart,
-    color: "#4287FF",
+    color: "#DBE8FB",
     title: "Progress You Can See",
     body: "Your tutor watches your analytics between sessions and adjusts the plan, so every class targets your weakest spots.",
   },
   {
     icon: Users,
-    color: "#D9FF42",
+    color: "#BCCE75",
     title: "Small Groups",
     body: "Tight cohorts mean real attention and a crew that keeps you accountable. Momentum beats cramming.",
   },
@@ -147,7 +147,7 @@ const BenefitsSection = () => {
   return (
     <section className="py-24 px-6 max-w-7xl mx-auto">
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-16">
-        What you get <span className="text-[#FF82A9] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>in class.</span>
+        What you get <span className="text-[#FBDAE3] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>in class.</span>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {benefits.map((b, i) => (
@@ -184,12 +184,12 @@ const HowItWorks = () => {
     <section id="how" className="py-24 px-6 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-16">
-          How it <span className="text-[#D9FF42]">works.</span>
+          How it <span className="text-[#BCCE75]">works.</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((s) => (
             <div key={s.n} className="border-4 border-[#f4efe6]/20 rounded-3xl p-8">
-              <span className="font-display font-black text-5xl text-[#D9FF42]">{s.n}</span>
+              <span className="font-display font-black text-5xl text-[#BCCE75]">{s.n}</span>
               <h3 className="mt-4 text-2xl font-display font-black uppercase tracking-tight text-white">{s.title}</h3>
               <p className="mt-3 text-base font-medium text-gray-300">{s.body}</p>
             </div>
@@ -203,15 +203,15 @@ const HowItWorks = () => {
 const EnrollSection = () => {
   return (
     <section id="enroll" className="py-28 px-6">
-      <div className="max-w-4xl mx-auto bg-[#4287FF] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-20 text-center relative overflow-hidden">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
-        <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#FF82A9] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+      <div className="max-w-4xl mx-auto bg-[#DBE8FB] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+        <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#FBDAE3] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
 
         <div className="relative z-10">
-          <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] text-white">
-            Ready to <span className="text-[#D9FF42] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>enroll?</span>
+          <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] text-[#0f0e0e]">
+            Ready to <span className="text-[#BCCE75] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>enroll?</span>
           </h2>
-          <p className="mt-6 text-lg md:text-xl font-medium text-white/90 max-w-xl mx-auto">
+          <p className="mt-6 text-lg md:text-xl font-medium text-[#0f0e0e]/80 max-w-xl mx-auto">
             Parents and students welcome. Message us on Facebook with the target score and test date, and we&apos;ll get the student placed in the next cohort.
           </p>
           <Link
@@ -221,7 +221,7 @@ const EnrollSection = () => {
             className="group relative inline-block mt-10"
           >
             <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-            <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+            <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
               <FacebookIcon className="w-7 h-7" />
               Message Us on Facebook
             </div>
@@ -234,7 +234,7 @@ const EnrollSection = () => {
 
 export default function ClassesPage() {
   return (
-    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden">
+    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#BCCE75] selection:text-[#0f0e0e] overflow-x-hidden">
       <SiteNav />
       <main>
         <ClassesHero />

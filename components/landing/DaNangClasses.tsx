@@ -39,9 +39,9 @@ const DaNangHero = () => {
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, 6, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#4287FF] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
+        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#DBE8FB] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
       >
-        <GraduationCap className="w-12 h-12 text-white" />
+        <GraduationCap className="w-12 h-12 text-[#0f0e0e]" />
       </motion.div>
 
       <div className="max-w-5xl mx-auto text-center">
@@ -49,7 +49,7 @@ const DaNangHero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", bounce: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
+          className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
         >
           <MapPin className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">
@@ -62,7 +62,7 @@ const DaNangHero = () => {
           <br />
           ngay tại{" "}
           <span className="relative inline-block mt-3">
-            <span className="relative z-10 bg-[#FF82A9] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
+            <span className="relative z-10 bg-[#FBDAE3] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
               Đà Nẵng.
             </span>
           </span>
@@ -76,7 +76,7 @@ const DaNangHero = () => {
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <Link href={REGISTER_URL} className="group relative w-full sm:w-auto">
             <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-            <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+            <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
               <CheckCircle2 className="w-6 h-6" />
               Đăng ký ngay
             </div>
@@ -148,7 +148,7 @@ const WhyNowSection = () => {
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-6">
         Tại sao là{" "}
         <span
-          className="text-[#FF82A9] text-outline"
+          className="text-[#FBDAE3] text-outline"
           style={{ WebkitTextStroke: "2px #0f0e0e" }}
         >
           SAT, ngay bây giờ.
@@ -168,7 +168,7 @@ const WhyNowSection = () => {
             transition={{ delay: i * 0.1 }}
             className="bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 flex flex-col"
           >
-            <div className="border-2 border-[#0f0e0e] bg-[#D9FF42] p-3 rounded-full inline-flex brutal-shadow-sm mb-6 w-fit">
+            <div className="border-2 border-[#0f0e0e] bg-[#BCCE75] p-3 rounded-full inline-flex brutal-shadow-sm mb-6 w-fit">
               <p.icon className="w-6 h-6 text-[#0f0e0e]" />
             </div>
             <h3 className="text-2xl font-display font-black uppercase tracking-tight">
@@ -185,13 +185,13 @@ const WhyNowSection = () => {
 const goals = [
   {
     icon: Target,
-    color: "#FF6B35",
+    color: "#FBE1D3",
     title: "Xét tuyển đại học",
     body: "Điểm SAT cao mở cửa các chương trình tiên tiến, liên kết quốc tế và xét tuyển kết hợp tại các trường đại học hàng đầu trong nước.",
   },
   {
     icon: Plane,
-    color: "#4287FF",
+    color: "#DBE8FB",
     title: "Du học & học bổng",
     body: "Hồ sơ SAT mạnh là điểm cộng lớn khi nộp đơn vào các trường ở Mỹ và quốc tế, đồng thời tăng cơ hội nhận học bổng giá trị.",
   },
@@ -203,7 +203,7 @@ const GoalsSection = () => {
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-12">
         Học SAT để{" "}
         <span
-          className="text-[#4287FF] text-outline"
+          className="text-[#DBE8FB] text-outline"
           style={{ WebkitTextStroke: "2px #0f0e0e" }}
         >
           đi xa hơn.
@@ -239,19 +239,19 @@ const GoalsSection = () => {
 const scoreLadder = [
   {
     range: "1200+",
-    color: "#4287FF",
+    color: "#DBE8FB",
     title: "Mở cửa đại học",
     body: "Đủ điều kiện xét tuyển vào phần lớn các trường đại học nhận chứng chỉ SAT tại Việt Nam.",
   },
   {
     range: "1300–1400+",
-    color: "#FF82A9",
+    color: "#FBDAE3",
     title: "Trường top & học bổng",
     body: "Cạnh tranh ở nhóm trường top như Ngoại Thương, Y Dược, đồng thời đủ sức săn học bổng du học.",
   },
   {
     range: "1500+",
-    color: "#D9FF42",
+    color: "#BCCE75",
     title: "Xa hơn nữa",
     body: "Mức điểm hướng tới các trường hàng đầu thế giới và những suất học bổng giá trị lớn.",
   },
@@ -263,7 +263,7 @@ const ScoreLadderSection = () => {
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-6">
         Con bạn đang{" "}
         <span
-          className="text-[#FF6B35] text-outline"
+          className="text-[#FBE1D3] text-outline"
           style={{ WebkitTextStroke: "2px #0f0e0e" }}
         >
           ở đâu?
@@ -313,15 +313,15 @@ const LocalSection = () => {
         viewport={{ once: true }}
         className="bg-[#0f0e0e] text-[#f4efe6] border-4 border-[#0f0e0e] rounded-[2.5rem] brutal-shadow-lg p-8 md:p-14 relative overflow-hidden"
       >
-        <div className="absolute -top-12 -right-12 w-44 h-44 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+        <div className="absolute -top-12 -right-12 w-44 h-44 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[#D9FF42] text-[#0f0e0e] border-2 border-[#0f0e0e] px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#BCCE75] text-[#0f0e0e] border-2 border-[#0f0e0e] px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider mb-6">
             <Trophy className="w-4 h-4" />
             Tự hào Đà Nẵng
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tight leading-[1.05]">
             Lớp SAT chuyên sâu mà con{" "}
-            <span className="text-[#D9FF42]">xứng đáng có</span> — không cần rời
+            <span className="text-[#BCCE75]">xứng đáng có</span> — không cần rời
             thành phố.
           </h2>
           <p className="mt-6 text-lg md:text-xl font-medium text-gray-300 max-w-2xl">
@@ -338,19 +338,19 @@ const LocalSection = () => {
 const features = [
   {
     icon: UserCheck,
-    color: "#D9FF42",
+    color: "#BCCE75",
     title: "Lộ trình cá nhân hoá",
     body: "Giảng dạy trên nền tảng Ronan SAT, lộ trình thiết kế riêng cho từng học viên. Theo sát, tốc độ vừa phải, không nhồi nhét.",
   },
   {
     icon: Clock,
-    color: "#FF6B35",
+    color: "#FBE1D3",
     title: "Thời lượng linh hoạt",
     body: "Học nhanh trong 5–8 tháng hoặc đồng hành dài hạn. Thời lượng thích ứng với năng lực và mục tiêu của từng bạn.",
   },
   {
     icon: LineChart,
-    color: "#4287FF",
+    color: "#DBE8FB",
     title: "Báo cáo hàng tuần",
     body: "Báo cáo điểm số và quá trình học mỗi tuần. Cả phụ huynh và học sinh đều theo dõi được tiến độ một cách minh bạch.",
   },
@@ -362,7 +362,7 @@ const FeaturesSection = () => {
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-16">
         Lớp học{" "}
         <span
-          className="text-[#4287FF] text-outline"
+          className="text-[#DBE8FB] text-outline"
           style={{ WebkitTextStroke: "2px #0f0e0e" }}
         >
           vận hành thế nào.
@@ -413,7 +413,7 @@ const TuitionSection = () => {
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-6">
         Học phí{" "}
         <span
-          className="text-[#FF6B35] text-outline"
+          className="text-[#FBE1D3] text-outline"
           style={{ WebkitTextStroke: "2px #0f0e0e" }}
         >
           vừa phải.
@@ -433,7 +433,7 @@ const TuitionSection = () => {
             transition={{ delay: i * 0.1 }}
             className="bg-white border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 flex flex-col"
           >
-            <div className="border-2 border-[#0f0e0e] bg-[#D9FF42] p-3 rounded-full inline-flex brutal-shadow-sm mb-6 w-fit">
+            <div className="border-2 border-[#0f0e0e] bg-[#BCCE75] p-3 rounded-full inline-flex brutal-shadow-sm mb-6 w-fit">
               <p.icon className="w-6 h-6 text-[#0f0e0e]" />
             </div>
             <h3 className="text-3xl font-display font-black uppercase tracking-tight">
@@ -469,7 +469,7 @@ const RealExamSection = () => {
     <section className="py-24 px-6 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-6">
-          Ôn đề thật, <span className="text-[#D9FF42]">biết điểm thật.</span>
+          Ôn đề thật, <span className="text-[#BCCE75]">biết điểm thật.</span>
         </h2>
         <p className="text-lg md:text-xl font-medium text-gray-300 max-w-2xl mb-16">
           Nền tảng ôn thi hiện đại của Ronan SAT, kết hợp tài liệu và công cụ
@@ -481,7 +481,7 @@ const RealExamSection = () => {
               key={item.title}
               className="border-4 border-[#f4efe6]/20 rounded-3xl p-8"
             >
-              <div className="bg-[#D9FF42] text-[#0f0e0e] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex mb-6 w-fit">
+              <div className="bg-[#BCCE75] text-[#0f0e0e] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex mb-6 w-fit">
                 <item.icon className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-display font-black uppercase tracking-tight text-white">
@@ -508,11 +508,11 @@ const TeacherSection = () => {
         className="bg-white border-4 border-[#0f0e0e] rounded-[2.5rem] brutal-shadow-lg p-8 md:p-12"
       >
         <div className="flex flex-col md:flex-row items-start gap-8">
-          <div className="bg-[#FF82A9] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow w-24 h-24 flex items-center justify-center shrink-0">
+          <div className="bg-[#FBDAE3] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow w-24 h-24 flex items-center justify-center shrink-0">
             <GraduationCap className="w-12 h-12 text-[#0f0e0e]" />
           </div>
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-3 py-1 rounded-full brutal-shadow-sm font-bold text-xs uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-3 py-1 rounded-full brutal-shadow-sm font-bold text-xs uppercase tracking-wider mb-4">
               <Award className="w-4 h-4" />
               Giáo viên đứng lớp
             </div>
@@ -543,7 +543,7 @@ const TeacherSection = () => {
                 />
               </Link>
               <div>
-                <div className="inline-flex items-center gap-2 bg-[#FF6B35] text-white border-2 border-[#0f0e0e] px-3 py-1 rounded-full brutal-shadow-sm font-bold text-xs uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 bg-[#FBE1D3] text-[#0f0e0e] border-2 border-[#0f0e0e] px-3 py-1 rounded-full brutal-shadow-sm font-bold text-xs uppercase tracking-wider">
                   <Trophy className="w-4 h-4" />
                   Học bổng
                 </div>
@@ -564,7 +564,7 @@ const TeacherSection = () => {
               className="group relative inline-block mt-8"
             >
               <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-1.5 translate-y-1.5 transition-transform group-hover:translate-x-2.5 group-hover:translate-y-2.5"></div>
-              <div className="relative flex items-center justify-center gap-2 bg-[#4287FF] text-white border-4 border-[#0f0e0e] px-6 py-3 rounded-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+              <div className="relative flex items-center justify-center gap-2 bg-[#DBE8FB] text-[#0f0e0e] border-4 border-[#0f0e0e] px-6 py-3 rounded-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
                 <FacebookIcon className="w-5 h-5" />
                 Facebook giáo viên
               </div>
@@ -584,7 +584,7 @@ const SeatsSection = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-[#D9FF42] border-4 border-[#0f0e0e] rounded-[2.5rem] brutal-shadow-lg p-8 md:p-12 text-center"
+        className="bg-[#BCCE75] border-4 border-[#0f0e0e] rounded-[2.5rem] brutal-shadow-lg p-8 md:p-12 text-center"
       >
         <h2 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tight">
           Sĩ số có hạn để theo sát
@@ -609,7 +609,7 @@ const SeatsSection = () => {
               whileInView={{ width: `${pct}%` }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: "easeOut" }}
-              className="h-full bg-[#FF6B35] border-r-4 border-[#0f0e0e]"
+              className="h-full bg-[#FBE1D3] border-r-4 border-[#0f0e0e]"
             />
           </div>
         </div>
@@ -640,7 +640,7 @@ const HowItWorks = () => {
     <section id="how" className="py-24 px-6 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-16">
-          Cách <span className="text-[#D9FF42]">hoạt động.</span>
+          Cách <span className="text-[#BCCE75]">hoạt động.</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((s) => (
@@ -648,7 +648,7 @@ const HowItWorks = () => {
               key={s.n}
               className="border-4 border-[#f4efe6]/20 rounded-3xl p-8"
             >
-              <span className="font-display font-black text-5xl text-[#D9FF42]">
+              <span className="font-display font-black text-5xl text-[#BCCE75]">
                 {s.n}
               </span>
               <h3 className="mt-4 text-2xl font-display font-black uppercase tracking-tight text-white">
@@ -668,21 +668,21 @@ const HowItWorks = () => {
 const EnrollSection = () => {
   return (
     <section id="enroll" className="py-28 px-6">
-      <div className="max-w-4xl mx-auto bg-[#4287FF] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-20 text-center relative overflow-hidden">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
-        <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#FF82A9] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+      <div className="max-w-4xl mx-auto bg-[#DBE8FB] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+        <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#FBDAE3] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
 
         <div className="relative z-10">
-          <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] text-white">
+          <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] text-[#0f0e0e]">
             Sẵn sàng{" "}
             <span
-              className="text-[#D9FF42] text-outline"
+              className="text-[#BCCE75] text-outline"
               style={{ WebkitTextStroke: "2px #0f0e0e" }}
             >
               đăng ký?
             </span>
           </h2>
-          <p className="mt-6 text-lg md:text-xl font-medium text-white/90 max-w-xl mx-auto">
+          <p className="mt-6 text-lg md:text-xl font-medium text-[#0f0e0e]/80 max-w-xl mx-auto">
             Còn {SEATS_TOTAL - SEATS_TAKEN} chỗ trong lớp. Điền đơn đăng ký để
             được xếp lộ trình, hoặc nhắn trực tiếp Mạnh Đức để được tư vấn.
           </p>
@@ -692,7 +692,7 @@ const EnrollSection = () => {
               className="group relative w-full sm:w-auto"
             >
               <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-              <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+              <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
                 <CheckCircle2 className="w-7 h-7" />
                 Đăng ký ngay
               </div>
@@ -720,7 +720,7 @@ export default function DaNangClasses() {
   return (
     <div
       lang="vi"
-      className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden"
+      className="min-h-screen bg-[#f4efe6] selection:bg-[#BCCE75] selection:text-[#0f0e0e] overflow-x-hidden"
     >
       <SiteNav />
       <main>

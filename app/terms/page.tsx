@@ -52,13 +52,13 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#f4efe6] text-[#0f0e0e] selection:bg-[#D9FF42] selection:text-[#0f0e0e]">
+    <div className="min-h-screen bg-[#f4efe6] text-[#0f0e0e] selection:bg-[#BCCE75] selection:text-[#0f0e0e]">
       <header className="px-6 pt-8">
         <div className="max-w-5xl mx-auto bg-white border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-sm px-6 py-4 flex items-center justify-between gap-4">
           <BrandLogo size={34} labelClassName="text-2xl" iconClassName="w-9 h-9" />
           <Link
             href="/"
-            className="font-bold text-sm uppercase tracking-wide border-2 border-[#0f0e0e] rounded-full px-4 py-2 hover:bg-[#FF82A9] transition-colors"
+            className="font-bold text-sm uppercase tracking-wide border-2 border-[#0f0e0e] rounded-full px-4 py-2 hover:bg-[#FBDAE3] transition-colors"
           >
             Back Home
           </Link>
@@ -68,7 +68,7 @@ export default function TermsPage() {
       <main className="px-6 py-12 md:py-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10 md:mb-14">
-            <div className="inline-flex items-center bg-[#FF82A9] border-2 border-[#0f0e0e] rounded-full px-4 py-1.5 brutal-shadow-sm font-bold uppercase text-sm tracking-wide">
+            <div className="inline-flex items-center bg-[#FBDAE3] border-2 border-[#0f0e0e] rounded-full px-4 py-1.5 brutal-shadow-sm font-bold uppercase text-sm tracking-wide">
               Legal
             </div>
             <h1 className="mt-6 text-5xl md:text-7xl font-display font-black uppercase leading-[0.95] tracking-tight">

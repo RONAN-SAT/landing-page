@@ -58,7 +58,7 @@ const ClassesDropdown = () => {
                   key={link.href}
                   href={link.href}
                   lang={link.lang}
-                  className="block px-5 py-4 hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e] last:border-b-0"
+                  className="block px-5 py-4 hover:bg-[#BCCE75] transition-colors border-b-2 border-[#0f0e0e] last:border-b-0"
                 >
                   <span className="block font-bold text-sm">{link.label}</span>
                   <span className="block text-xs text-[#0f0e0e]/60 mt-0.5">
@@ -87,7 +87,7 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
         <Link
           href="/"
           onClick={onClose}
-          className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e]"
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#BCCE75] transition-colors border-b-2 border-[#0f0e0e]"
         >
           Home
         </Link>
@@ -97,7 +97,7 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
             href={link.href}
             lang={link.lang}
             onClick={onClose}
-            className="block px-5 py-4 hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e]"
+            className="block px-5 py-4 hover:bg-[#BCCE75] transition-colors border-b-2 border-[#0f0e0e]"
           >
             <span className="block font-bold text-sm">{link.label}</span>
             <span className="block text-xs text-[#0f0e0e]/60 mt-0.5">
@@ -108,21 +108,21 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
         <Link
           href="/referral"
           onClick={onClose}
-          className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e]"
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#BCCE75] transition-colors border-b-2 border-[#0f0e0e]"
         >
           Referral
         </Link>
         <Link
           href="/socials"
           onClick={onClose}
-          className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors border-b-2 border-[#0f0e0e]"
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#BCCE75] transition-colors border-b-2 border-[#0f0e0e]"
         >
           Socials
         </Link>
         <Link
           href="https://learn.ronansat.com/auth"
           onClick={onClose}
-          className="block px-5 py-4 font-bold text-sm hover:bg-[#D9FF42] transition-colors"
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#BCCE75] transition-colors"
         >
           Log in / Start Free
         </Link>
@@ -189,7 +189,7 @@ export default function SiteNav({ withBanner = false }: { withBanner?: boolean }
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="md:hidden border-2 border-[#0f0e0e] rounded-xl p-2 hover:bg-[#D9FF42] transition-colors"
+          className="md:hidden border-2 border-[#0f0e0e] rounded-xl p-2 hover:bg-[#BCCE75] transition-colors"
         >
           {mobileOpen ? (
             <X className="w-5 h-5" />

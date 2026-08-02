@@ -28,7 +28,7 @@ const socials: Social[] = [
     handle: "@ronansat",
     href: "https://www.facebook.com/ronansat",
     blurb: "Updates, announcements, and the fastest way to message us.",
-    color: "#4287FF",
+    color: "#DBE8FB",
     icon: FacebookIcon,
   },
   {
@@ -36,7 +36,7 @@ const socials: Social[] = [
     handle: "@ronan_sat",
     href: "https://www.instagram.com/ronan_sat",
     blurb: "Behind the scenes, study tips, and score wins in your feed.",
-    color: "#FF82A9",
+    color: "#FBDAE3",
     icon: InstagramIcon,
   },
   {
@@ -44,7 +44,7 @@ const socials: Social[] = [
     handle: "Join the community",
     href: "https://zalo.me/g/a1zqo9jyhlppeh3u64dr",
     blurb: "Hop into the Zalo group to study together and ask questions.",
-    color: "#D9FF42",
+    color: "#BCCE75",
     icon: ZaloIcon,
   },
   {
@@ -52,7 +52,7 @@ const socials: Social[] = [
     handle: "@ronan_sat",
     href: "https://www.threads.com/@ronan_sat",
     blurb: "Quick thoughts, SAT chatter, and replies to your questions.",
-    color: "#FF6B35",
+    color: "#FBE1D3",
     icon: ThreadsIcon,
   },
   {
@@ -60,7 +60,7 @@ const socials: Social[] = [
     handle: "t.me/ronansat",
     href: "https://t.me/ronansat",
     blurb: "Drops, reminders, and resources straight to your phone.",
-    color: "#4287FF",
+    color: "#DBE8FB",
     icon: TelegramIcon,
   },
 ];
@@ -71,9 +71,9 @@ const SocialsHero = () => {
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, 6, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#FF82A9] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
+        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#FBDAE3] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
       >
-        <Share2 className="w-12 h-12 text-white" />
+        <Share2 className="w-12 h-12 text-[#0f0e0e]" />
       </motion.div>
 
       <div className="max-w-5xl mx-auto text-center">
@@ -81,7 +81,7 @@ const SocialsHero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", bounce: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
+          className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
         >
           <Sparkles className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">
@@ -93,7 +93,7 @@ const SocialsHero = () => {
           Follow the
           <br />
           <span className="relative inline-block mt-2">
-            <span className="relative z-10 bg-[#D9FF42] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
+            <span className="relative z-10 bg-[#BCCE75] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
               community.
             </span>
           </span>
@@ -151,7 +151,7 @@ const SocialsGrid = () => {
 
 export default function SocialsHub() {
   return (
-    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden">
+    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#BCCE75] selection:text-[#0f0e0e] overflow-x-hidden">
       <SiteNav />
       <main>
         <SocialsHero />

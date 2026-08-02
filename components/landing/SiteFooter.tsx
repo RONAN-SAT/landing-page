@@ -16,7 +16,7 @@ const ZALO_URL = "https://zalo.me/g/a1zqo9jyhlppeh3u64dr";
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#0f0e0e] text-[#f4efe6] pt-24 pb-12 px-6 border-t-8 border-[#D9FF42]">
+    <footer className="bg-[#0f0e0e] text-[#f4efe6] pt-24 pb-12 px-6 border-t-8 border-[#BCCE75]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-white/20 pb-12">
         <div className="max-w-sm">
           <BrandLogo
@@ -34,25 +34,25 @@ export default function SiteFooter() {
           <div>
             <h4 className="font-bold uppercase tracking-wider text-gray-500 mb-4">Product</h4>
             <ul className="space-y-3 font-medium text-lg">
-              <li><Link href="/#features" className="hover:text-[#D9FF42] transition-colors">Features</Link></li>
-              <li><Link href="/#community" className="hover:text-[#D9FF42] transition-colors">Community</Link></li>
-              <li><Link href="/#vocab" className="hover:text-[#D9FF42] transition-colors">Vocab Builder</Link></li>
+              <li><Link href="/#features" className="hover:text-[#BCCE75] transition-colors">Features</Link></li>
+              <li><Link href="/#community" className="hover:text-[#BCCE75] transition-colors">Community</Link></li>
+              <li><Link href="/#vocab" className="hover:text-[#BCCE75] transition-colors">Vocab Builder</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold uppercase tracking-wider text-gray-500 mb-4">Learn</h4>
             <ul className="space-y-3 font-medium text-lg">
-              <li><Link href="/classes" className="hover:text-[#FF82A9] transition-colors">Classes</Link></li>
-              <li><Link href="/classes/da-nang" lang="vi" className="hover:text-[#FF82A9] transition-colors">Lớp học Đà Nẵng</Link></li>
-              <li><Link href="/referral" className="hover:text-[#FF82A9] transition-colors">Referral Programme</Link></li>
-              <li><Link href="/socials" className="hover:text-[#FF82A9] transition-colors">Socials</Link></li>
+              <li><Link href="/classes" className="hover:text-[#FBDAE3] transition-colors">Classes</Link></li>
+              <li><Link href="/classes/da-nang" lang="vi" className="hover:text-[#FBDAE3] transition-colors">Lớp học Đà Nẵng</Link></li>
+              <li><Link href="/referral" className="hover:text-[#FBDAE3] transition-colors">Referral Programme</Link></li>
+              <li><Link href="/socials" className="hover:text-[#FBDAE3] transition-colors">Socials</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold uppercase tracking-wider text-gray-500 mb-4">Company</h4>
             <ul className="space-y-3 font-medium text-lg">
-              <li><Link href="/privacy" className="hover:text-[#D9FF42] transition-colors">Privacy</Link></li>
-              <li><Link href="/terms" className="hover:text-[#D9FF42] transition-colors">Terms</Link></li>
+              <li><Link href="/privacy" className="hover:text-[#BCCE75] transition-colors">Privacy</Link></li>
+              <li><Link href="/terms" className="hover:text-[#BCCE75] transition-colors">Terms</Link></li>
             </ul>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ronan SAT on Facebook"
-            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#BCCE75] hover:text-[#BCCE75] transition-colors"
           >
             <FacebookIcon className="w-5 h-5" />
           </Link>
@@ -74,7 +74,7 @@ export default function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ronan SAT on Instagram"
-            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#BCCE75] hover:text-[#BCCE75] transition-colors"
           >
             <InstagramIcon className="w-5 h-5" />
           </Link>
@@ -83,7 +83,7 @@ export default function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ronan SAT Zalo group"
-            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#BCCE75] hover:text-[#BCCE75] transition-colors"
           >
             <ZaloIcon className="w-5 h-5" />
           </Link>
@@ -92,7 +92,7 @@ export default function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ronan SAT on Threads"
-            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#BCCE75] hover:text-[#BCCE75] transition-colors"
           >
             <ThreadsIcon className="w-5 h-5" />
           </Link>
@@ -101,7 +101,7 @@ export default function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ronan SAT on Telegram"
-            className="border-2 border-white/20 rounded-full p-2 hover:border-[#D9FF42] hover:text-[#D9FF42] transition-colors"
+            className="border-2 border-white/20 rounded-full p-2 hover:border-[#BCCE75] hover:text-[#BCCE75] transition-colors"
           >
             <TelegramIcon className="w-5 h-5" />
           </Link>

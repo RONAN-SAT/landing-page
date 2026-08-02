@@ -14,10 +14,10 @@ export default function ReferralBanner() {
     >
       <Link
         href="/referral"
-        className="group flex h-full items-center justify-center gap-2 bg-[#0f0e0e] px-4 text-[#f4efe6] border-b-2 border-[#D9FF42] hover:bg-[#1a1818] transition-colors"
+        className="group flex h-full items-center justify-center gap-2 bg-[#0f0e0e] px-4 text-[#f4efe6] border-b-2 border-[#BCCE75] hover:bg-[#1a1818] transition-colors"
       >
-        <Clock className="w-3.5 h-3.5 text-[#D9FF42] shrink-0" />
-        <span className="font-bold uppercase tracking-wider text-[11px] sm:text-xs text-[#D9FF42] shrink-0">
+        <Clock className="w-3.5 h-3.5 text-[#BCCE75] shrink-0" />
+        <span className="font-bold uppercase tracking-wider text-[11px] sm:text-xs text-[#BCCE75] shrink-0">
           Limited Time Offer
         </span>
         <span className="hidden sm:inline text-[#f4efe6]/40">·</span>

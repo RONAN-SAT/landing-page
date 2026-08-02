@@ -29,7 +29,7 @@ const HeroSection = () => {
       <motion.div
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-32 left-10 md:left-20 w-32 h-32 bg-[#FF82A9] rounded-full border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
+        className="absolute top-32 left-10 md:left-20 w-32 h-32 bg-[#FBDAE3] rounded-full border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
       >
         <Sparkles className="w-12 h-12 text-[#0f0e0e]" />
       </motion.div>
@@ -37,7 +37,7 @@ const HeroSection = () => {
       <motion.div
         animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-40 right-10 md:right-20 w-40 h-40 bg-[#D9FF42] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
+        className="absolute bottom-40 right-10 md:right-20 w-40 h-40 bg-[#BCCE75] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
       >
         <Target className="w-16 h-16 text-[#0f0e0e]" />
       </motion.div>
@@ -50,7 +50,7 @@ const HeroSection = () => {
             transition={{ type: "spring", bounce: 0.5 }}
             className="inline-flex items-center gap-2 bg-white border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
           >
-            <span className="w-3 h-3 rounded-full bg-[#FF6B35] animate-pulse"></span>
+            <span className="w-3 h-3 rounded-full bg-[#FBE1D3] animate-pulse"></span>
             <span className="font-bold text-sm uppercase tracking-wider">Not your average prep course</span>
           </motion.div>
 
@@ -63,7 +63,7 @@ const HeroSection = () => {
             Hate Studying?<br/>
             <span className="text-outline">We Made It</span><br/>
             <span className="relative inline-block mt-2">
-              <span className="relative z-10 bg-[#4287FF] text-white px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform rotate-2">
+              <span className="relative z-10 bg-[#DBE8FB] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform rotate-2">
                 Addicting.
               </span>
             </span>
@@ -86,7 +86,7 @@ const HeroSection = () => {
           >
             <Link href="https://learn.ronansat.com/auth" className="group relative w-full sm:w-auto">
               <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-              <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+              <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
                 Start Practicing
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -106,7 +106,7 @@ const HeroSection = () => {
 
 const MarqueeSection = () => {
   return (
-    <div className="bg-[#0f0e0e] text-[#D9FF42] py-6 border-y-4 border-[#0f0e0e] flex overflow-hidden whitespace-nowrap -rotate-2 scale-105 origin-center relative z-20">
+    <div className="bg-[#0f0e0e] text-[#BCCE75] py-6 border-y-4 border-[#0f0e0e] flex overflow-hidden whitespace-nowrap -rotate-2 scale-105 origin-center relative z-20">
       <div className="marquee-content font-display font-black text-4xl uppercase tracking-widest flex items-center">
         {Array.from({ length: 10 }).map((_, i) => (
           <span key={i} className="flex items-center">
@@ -128,14 +128,14 @@ const BentoFeatures = () => {
     <section id="features" className="py-32 px-6 max-w-7xl mx-auto">
       <div className="mb-16">
         <h2 className="text-5xl md:text-7xl font-display font-black uppercase tracking-tight text-balance">
-          We rebuilt prep <br/> <span className="text-[#4287FF] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>from the ground up.</span>
+          We rebuilt prep <br/> <span className="text-[#DBE8FB] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>from the ground up.</span>
         </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:auto-rows-[300px]">
         <motion.div
           whileHover={{ y: -5 }}
-          className="md:col-span-2 bg-[#FF6B35] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between overflow-hidden relative group min-h-[300px]"
+          className="md:col-span-2 bg-[#FBE1D3] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between overflow-hidden relative group min-h-[300px]"
         >
           <div className="relative z-10">
             <div className="bg-white border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
@@ -154,8 +154,8 @@ const BentoFeatures = () => {
           className="bg-white rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between min-h-[300px]"
         >
           <div>
-             <div className="bg-[#4287FF] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
-              <Trophy className="w-6 h-6 text-white" />
+             <div className="bg-[#DBE8FB] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
+              <Trophy className="w-6 h-6 text-[#0f0e0e]" />
             </div>
             <h3 className="text-3xl font-display font-black text-[#0f0e0e] uppercase">Leaderboards</h3>
             <p className="mt-4 text-base font-medium text-gray-700">
@@ -164,14 +164,14 @@ const BentoFeatures = () => {
           </div>
           <div className="mt-6 flex items-end gap-2 h-20">
             <div className="w-1/3 bg-[#f4efe6] h-[40%] rounded-xl border-2 border-[#0f0e0e]"></div>
-            <div className="w-1/3 bg-[#FF82A9] h-[80%] rounded-xl border-2 border-[#0f0e0e]"></div>
-            <div className="w-1/3 bg-[#D9FF42] h-[100%] rounded-xl border-2 border-[#0f0e0e]"></div>
+            <div className="w-1/3 bg-[#FBDAE3] h-[80%] rounded-xl border-2 border-[#0f0e0e]"></div>
+            <div className="w-1/3 bg-[#BCCE75] h-[100%] rounded-xl border-2 border-[#0f0e0e]"></div>
           </div>
         </motion.div>
 
         <motion.div
           whileHover={{ y: -5 }}
-          className="bg-[#D9FF42] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between min-h-[300px]"
+          className="bg-[#BCCE75] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between min-h-[300px]"
         >
           <div>
             <div className="bg-white border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
@@ -186,7 +186,7 @@ const BentoFeatures = () => {
 
         <motion.div
           whileHover={{ y: -5 }}
-          className="bg-[#FF82A9] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between min-h-[300px]"
+          className="bg-[#FBDAE3] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between min-h-[300px]"
         >
           <div>
             <div className="bg-white border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
@@ -204,7 +204,7 @@ const BentoFeatures = () => {
           className="md:col-span-1 bg-[#0f0e0e] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between text-[#f4efe6] min-h-[300px]"
         >
           <div>
-            <div className="bg-[#D9FF42] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex mb-6">
+            <div className="bg-[#BCCE75] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex mb-6">
               <Target className="w-6 h-6 text-[#0f0e0e]" />
             </div>
             <h3 className="text-3xl font-display font-black uppercase text-white">Custom Practice</h3>
@@ -219,7 +219,7 @@ const BentoFeatures = () => {
           className="md:col-span-1 bg-white rounded-3xl border-4 border-[#0f0e0e] brutal-shadow p-8 flex flex-col justify-between min-h-[300px]"
         >
           <div>
-            <div className="bg-[#FF6B35] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
+            <div className="bg-[#FBE1D3] border-2 border-[#0f0e0e] p-3 rounded-full inline-flex brutal-shadow-sm mb-6">
               <BookOpen className="w-6 h-6 text-[#0f0e0e]" />
             </div>
             <h3 className="text-3xl font-display font-black text-[#0f0e0e] uppercase">Vocab Builder</h3>
@@ -238,22 +238,22 @@ const BentoFeatures = () => {
 
 const CommunitySection = () => {
   const posts = [
-    { tag: "Question", color: "#4287FF", title: "Why is the answer B on this linear systems problem?", meta: "42 upvotes · 12 replies" },
-    { tag: "Poll", color: "#FF82A9", title: "How are you pacing the Reading module?", meta: "318 votes" },
-    { tag: "Event", color: "#D9FF42", title: "Saturday full-length, 9AM. Who's in?", meta: "27 signed up" },
+    { tag: "Question", color: "#DBE8FB", title: "Why is the answer B on this linear systems problem?", meta: "42 upvotes · 12 replies" },
+    { tag: "Poll", color: "#FBDAE3", title: "How are you pacing the Reading module?", meta: "318 votes" },
+    { tag: "Event", color: "#BCCE75", title: "Saturday full-length, 9AM. Who's in?", meta: "27 signed up" },
   ];
 
   return (
     <section id="community" className="py-32 px-6 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
         <div className="lg:w-1/2">
-          <div className="inline-flex items-center gap-2 bg-[#D9FF42] text-[#0f0e0e] px-4 py-1.5 border-2 border-[#0f0e0e] rounded-full font-bold text-sm uppercase tracking-wider brutal-shadow-sm rotate-[-2deg] mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#BCCE75] text-[#0f0e0e] px-4 py-1.5 border-2 border-[#0f0e0e] rounded-full font-bold text-sm uppercase tracking-wider brutal-shadow-sm rotate-[-2deg] mb-6">
             <MessageSquare className="w-4 h-4" />
             The Forum
           </div>
           <h2 className="text-5xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] mb-6">
             You&apos;re not <br/>
-            <span className="text-[#FF82A9]">grinding alone.</span>
+            <span className="text-[#FBDAE3]">grinding alone.</span>
           </h2>
           <p className="text-xl text-gray-300 font-medium mb-8 max-w-lg">
             Post a tough question straight from the bank, run a poll, or rally a study group for the weekend. Upvotes, karma, and threads keep the good answers on top.
@@ -261,7 +261,7 @@ const CommunitySection = () => {
           <ul className="space-y-4 mb-10">
             {["Embed real SAT questions in any post", "Vote answers up, earn karma flair", "Polls, events, and study threads"].map((item) => (
               <li key={item} className="flex items-center gap-3 font-medium text-lg">
-                <CheckCircle2 className="w-6 h-6 text-[#D9FF42] shrink-0" />
+                <CheckCircle2 className="w-6 h-6 text-[#BCCE75] shrink-0" />
                 {item}
               </li>
             ))}
@@ -311,7 +311,7 @@ const FlashcardDemo = () => {
     <section id="vocab" className="py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
         <div className="md:w-1/2">
-          <div className="inline-block bg-[#D9FF42] text-[#0f0e0e] px-4 py-1 border-2 border-[#0f0e0e] rounded-full font-bold text-sm uppercase tracking-wider brutal-shadow-sm mb-6 rotate-2">
+          <div className="inline-block bg-[#BCCE75] text-[#0f0e0e] px-4 py-1 border-2 border-[#0f0e0e] rounded-full font-bold text-sm uppercase tracking-wider brutal-shadow-sm mb-6 rotate-2">
             Interactive Demo
           </div>
           <h2 className="text-5xl md:text-6xl font-display font-black uppercase tracking-tight text-[#0f0e0e] mb-6">
@@ -323,7 +323,7 @@ const FlashcardDemo = () => {
           <ul className="space-y-4 mb-10">
             {["Curated high-frequency SAT words", "Spaced repetition algorithms", "Contextual example sentences"].map((item, i) => (
               <li key={i} className="flex items-center gap-3 font-medium text-lg">
-                <CheckCircle2 className="w-6 h-6 text-[#FF6B35]" />
+                <CheckCircle2 className="w-6 h-6 text-[#FBE1D3]" />
                 {item}
               </li>
             ))}
@@ -350,13 +350,13 @@ const FlashcardDemo = () => {
 
               {/* Back */}
               <div
-                className="absolute inset-0 backface-hidden bg-[#FF82A9] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow-lg flex flex-col items-center justify-center p-8 text-center"
+                className="absolute inset-0 backface-hidden bg-[#FBDAE3] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow-lg flex flex-col items-center justify-center p-8 text-center"
                 style={{ transform: "rotateY(180deg)" }}
               >
                 <div className="text-2xl font-display font-black text-[#0f0e0e] mb-4">
                   (adjective)
                 </div>
-                <div className="text-3xl font-bold text-white mb-6">
+                <div className="text-3xl font-bold text-[#0f0e0e] mb-6">
                   Lasting for a very short time.
                 </div>
                 <div className="text-lg font-medium text-[#0f0e0e]/80 italic bg-white/20 p-4 rounded-xl border-2 border-[#0f0e0e]">
@@ -374,8 +374,8 @@ const FlashcardDemo = () => {
 const ClassesTeaser = () => {
   return (
     <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto bg-[#FF82A9] border-4 border-[#0f0e0e] rounded-[2rem] brutal-shadow p-8 md:p-12 relative overflow-hidden">
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-multiply -z-0" />
+      <div className="max-w-6xl mx-auto bg-[#FBDAE3] border-4 border-[#0f0e0e] rounded-[2rem] brutal-shadow p-8 md:p-12 relative overflow-hidden">
+        <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-multiply -z-0" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-white border-2 border-[#0f0e0e] rounded-full px-4 py-1.5 brutal-shadow-sm font-bold text-sm uppercase tracking-wide mb-5">
@@ -391,7 +391,7 @@ const ClassesTeaser = () => {
           </div>
           <Link href="/classes" className="group relative inline-block shrink-0">
             <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-            <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+            <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
               Explore Classes
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -405,20 +405,20 @@ const ClassesTeaser = () => {
 const CTASection = () => {
   return (
     <section className="py-32 px-6">
-      <div className="max-w-5xl mx-auto bg-[#4287FF] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-24 text-center relative overflow-hidden">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
-        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-[#FF6B35] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+      <div className="max-w-5xl mx-auto bg-[#DBE8FB] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-24 text-center relative overflow-hidden">
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-[#FBE1D3] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
 
         <div className="relative z-10">
-          <h2 className="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter text-white mb-8">
-            Ready to <br/><span className="text-[#D9FF42] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>Destroy</span> the SAT?
+          <h2 className="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter text-[#0f0e0e] mb-8">
+            Ready to <br/><span className="text-[#BCCE75] text-outline" style={{ WebkitTextStroke: "2px #0f0e0e" }}>Destroy</span> the SAT?
           </h2>
-          <p className="text-xl md:text-2xl font-medium text-white/90 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl font-medium text-[#0f0e0e]/80 mb-12 max-w-2xl mx-auto">
             Join thousands of students who traded boring textbooks for a study platform they actually want to use.
           </p>
           <Link href="https://learn.ronansat.com/auth" className="group relative inline-block">
             <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-            <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+            <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
               Start Practicing
               <BrandLogo
                 withWordmark={false}
@@ -435,7 +435,7 @@ const CTASection = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden">
+    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#BCCE75] selection:text-[#0f0e0e] overflow-x-hidden">
       <ReferralBanner />
       <SiteNav withBanner />
       <main>

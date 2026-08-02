@@ -21,10 +21,10 @@ The application is not a "software interface"; it is a **digitized physical envi
 | `paper-bg` | `#f4efe6` | Global page background. |
 | `ink-fg` | `#0f0e0e` | All text, borders, and shadows. |
 | `surface-white`| `#ffffff` | Elevated cards/modals. |
-| `primary` | `#D9FF42` | Primary Action/Success (Highlighter Yellow). |
-| `accent-1` | `#FF82A9` | Vocabulary/Creative (Bubblegum). |
-| `accent-2` | `#4287FF` | Math/Logic (Ink Blue). |
-| `accent-3` | `#FF6B35` | Alerts/Critical (Tangerine). |
+| `primary` | `#BCCE75` | Primary Action/Success (Pastel Olive Green). |
+| `accent-1` | `#FBDAE3` | Vocabulary/Creative (Pastel Rose). |
+| `accent-2` | `#DBE8FB` | Math/Logic (Pastel Sky). |
+| `accent-3` | `#FBE1D3` | Alerts/Critical (Pastel Peach). |
 
 ### B. Structural Specs
 - **Borders:** Global default is `2px solid #0f0e0e`. Interactive headers use `4px`.

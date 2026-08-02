@@ -40,9 +40,9 @@ const PartnerHero = () => {
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, 6, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#4287FF] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
+        className="absolute top-28 right-10 md:right-24 w-28 h-28 bg-[#DBE8FB] rounded-3xl border-4 border-[#0f0e0e] brutal-shadow mix-blend-multiply flex items-center justify-center -z-10"
       >
-        <Crown className="w-12 h-12 text-white" />
+        <Crown className="w-12 h-12 text-[#0f0e0e]" />
       </motion.div>
 
       <div className="max-w-5xl mx-auto text-center">
@@ -50,7 +50,7 @@ const PartnerHero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", bounce: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
+          className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
         >
           <ShieldCheck className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">
@@ -62,7 +62,7 @@ const PartnerHero = () => {
           Refer students.
           <br />
           <span className="relative inline-block mt-2">
-            <span className="relative z-10 bg-[#FF82A9] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
+            <span className="relative z-10 bg-[#FBDAE3] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
               earn up to 210M.
             </span>
           </span>
@@ -79,7 +79,7 @@ const PartnerHero = () => {
             className="group relative w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-            <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+            <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
               <Mail className="w-6 h-6" />
               Become a Partner
             </div>
@@ -101,7 +101,7 @@ const tiers = [
     icon: Award,
     name: "Golden",
     tier: "Tier 1",
-    color: "#D9FF42",
+    color: "#BCCE75",
     perStudent: "1,000,000 VND",
     range: "First 80 students",
     cap: "80,000,000 VND",
@@ -115,7 +115,7 @@ const tiers = [
     icon: Gem,
     name: "Platinum",
     tier: "Tier 2",
-    color: "#FF82A9",
+    color: "#FBDAE3",
     perStudent: "1,500,000 VND",
     range: "Students 81 – 140",
     cap: "90,000,000 VND",
@@ -129,7 +129,7 @@ const tiers = [
     icon: Crown,
     name: "Diamond",
     tier: "Tier 3",
-    color: "#4287FF",
+    color: "#DBE8FB",
     perStudent: "2,000,000 VND",
     range: "Students 141 – 160",
     cap: "40,000,000 VND",
@@ -147,7 +147,7 @@ const TiersSection = () => {
       <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-4">
         The{" "}
         <span
-          className="text-[#FF82A9] text-outline"
+          className="text-[#FBDAE3] text-outline"
           style={{ WebkitTextStroke: "2px #0f0e0e" }}
         >
           tiers.
@@ -217,7 +217,7 @@ const TiersSection = () => {
         className="mt-6 bg-[#0f0e0e] text-[#f4efe6] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6"
       >
         <div>
-          <div className="text-sm font-bold uppercase tracking-wider text-[#D9FF42]">
+          <div className="text-sm font-bold uppercase tracking-wider text-[#BCCE75]">
             Total revenue share
           </div>
           <p className="mt-2 font-medium text-base md:text-lg text-gray-300 max-w-xl">
@@ -225,7 +225,7 @@ const TiersSection = () => {
             partnership can earn up to:
           </p>
         </div>
-        <div className="font-display font-black text-5xl md:text-6xl tracking-tighter text-[#D9FF42] whitespace-nowrap">
+        <div className="font-display font-black text-5xl md:text-6xl tracking-tighter text-[#BCCE75] whitespace-nowrap">
           210,000,000 VND
         </div>
       </motion.div>
@@ -240,39 +240,39 @@ const EnterpriseSection = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="relative bg-gradient-to-br from-[#4287FF] to-[#2d5fd0] border-4 border-[#0f0e0e] rounded-[2.5rem] brutal-shadow-lg p-10 md:p-14 overflow-hidden"
+        className="relative bg-gradient-to-br from-[#DBE8FB] to-[#C7D9F2] border-4 border-[#0f0e0e] rounded-[2.5rem] brutal-shadow-lg p-10 md:p-14 overflow-hidden"
       >
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay" />
+        <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay" />
         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
           <div
             className="border-2 border-[#0f0e0e] p-4 rounded-full inline-flex brutal-shadow-sm shrink-0"
-            style={{ backgroundColor: "#D9FF42" }}
+            style={{ backgroundColor: "#BCCE75" }}
           >
             <Building2 className="w-8 h-8 text-[#0f0e0e]" />
           </div>
           <div className="flex-1">
-            <span className="font-bold text-xs uppercase tracking-wider text-white/70">
+            <span className="font-bold text-xs uppercase tracking-wider text-[#0f0e0e]/60">
               Tier 4
             </span>
-            <h2 className="mt-2 text-3xl md:text-5xl font-display font-black uppercase tracking-tight text-white">
+            <h2 className="mt-2 text-3xl md:text-5xl font-display font-black uppercase tracking-tight text-[#0f0e0e]">
               Enterprise partner
             </h2>
-            <p className="mt-4 text-lg md:text-xl font-medium text-white/90 max-w-2xl">
+            <p className="mt-4 text-lg md:text-xl font-medium text-[#0f0e0e]/80 max-w-2xl">
               For organisations referring at scale. Unlimited commission cap,
               additional bonuses, and bespoke terms built around your numbers.
               Let&apos;s talk through a deal that works for you.
             </p>
-            <ul className="mt-6 space-y-3 font-medium text-base md:text-lg text-white/90">
+            <ul className="mt-6 space-y-3 font-medium text-base md:text-lg text-[#0f0e0e]/80">
               <li className="flex items-center gap-3">
-                <InfinityIcon className="w-5 h-5 text-[#D9FF42] shrink-0" />
+                <InfinityIcon className="w-5 h-5 text-[#BCCE75] shrink-0" />
                 No cap on total revenue share
               </li>
               <li className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-[#D9FF42] shrink-0" />
+                <Sparkles className="w-5 h-5 text-[#BCCE75] shrink-0" />
                 Extra bonuses beyond the standard tiers
               </li>
               <li className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-[#D9FF42] shrink-0" />
+                <ShieldCheck className="w-5 h-5 text-[#BCCE75] shrink-0" />
                 Custom terms tailored to your organisation
               </li>
             </ul>
@@ -281,7 +281,7 @@ const EnterpriseSection = () => {
               className="group relative inline-block mt-8"
             >
               <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-              <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-lg md:text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+              <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-8 py-5 rounded-2xl text-lg md:text-xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
                 <Mail className="w-6 h-6" />
                 {CONTACT_EMAIL}
               </div>
@@ -324,7 +324,7 @@ const HowItWorks = () => {
     <section id="how" className="py-24 px-6 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-16">
-          How it <span className="text-[#D9FF42]">works.</span>
+          How it <span className="text-[#BCCE75]">works.</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((s) => (
@@ -333,10 +333,10 @@ const HowItWorks = () => {
               className="border-4 border-[#f4efe6]/20 rounded-3xl p-8"
             >
               <div className="flex items-center gap-4">
-                <span className="font-display font-black text-5xl text-[#D9FF42]">
+                <span className="font-display font-black text-5xl text-[#BCCE75]">
                   {s.n}
                 </span>
-                <s.icon className="w-8 h-8 text-[#D9FF42]" />
+                <s.icon className="w-8 h-8 text-[#BCCE75]" />
               </div>
               <h3 className="mt-4 text-2xl font-display font-black uppercase tracking-tight text-white">
                 {s.title}
@@ -361,12 +361,12 @@ const TermsNote = () => {
         </h2>
         <ul className="mt-6 space-y-4 font-medium text-base md:text-lg text-[#0f0e0e]/80">
           <li className="flex items-start gap-3">
-            <Banknote className="w-5 h-5 text-[#FF6B35] mt-1 shrink-0" />
+            <Banknote className="w-5 h-5 text-[#FBE1D3] mt-1 shrink-0" />
             All commissions are paid in cash, immediately on student sign-up.
             Diamond tier is split across the first two paid months.
           </li>
           <li className="flex items-start gap-3">
-            <Crown className="w-5 h-5 text-[#4287FF] mt-1 shrink-0" />
+            <Crown className="w-5 h-5 text-[#DBE8FB] mt-1 shrink-0" />
             Diamond commission requires the student to study for more than two
             months.
           </li>
@@ -377,7 +377,7 @@ const TermsNote = () => {
             are on an Enterprise agreement.
           </li>
           <li className="flex items-start gap-3">
-            <Building2 className="w-5 h-5 text-[#FF82A9] mt-1 shrink-0" />
+            <Building2 className="w-5 h-5 text-[#FBDAE3] mt-1 shrink-0" />
             For unlimited caps and additional bonuses, reach out about an
             Enterprise partnership at {CONTACT_EMAIL}.
           </li>
@@ -390,21 +390,21 @@ const TermsNote = () => {
 const CTASection = () => {
   return (
     <section className="py-28 px-6">
-      <div className="max-w-4xl mx-auto bg-[#4287FF] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-20 text-center relative overflow-hidden">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#D9FF42] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
-        <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#FF82A9] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+      <div className="max-w-4xl mx-auto bg-[#DBE8FB] border-4 border-[#0f0e0e] rounded-[3rem] brutal-shadow-lg p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
+        <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#FBDAE3] rotate-45 border-4 border-[#0f0e0e] mix-blend-overlay"></div>
 
         <div className="relative z-10">
-          <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] text-white">
+          <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight leading-[0.95] text-[#0f0e0e]">
             Let&apos;s{" "}
             <span
-              className="text-[#D9FF42] text-outline"
+              className="text-[#BCCE75] text-outline"
               style={{ WebkitTextStroke: "2px #0f0e0e" }}
             >
               partner up.
             </span>
           </h2>
-          <p className="mt-6 text-lg md:text-xl font-medium text-white/90 max-w-xl mx-auto">
+          <p className="mt-6 text-lg md:text-xl font-medium text-[#0f0e0e]/80 max-w-xl mx-auto">
             Ready to refer students and earn at scale? Message us on Facebook or
             email us to set up your partnership.
           </p>
@@ -414,7 +414,7 @@ const CTASection = () => {
               className="group relative w-full sm:w-auto"
             >
               <div className="absolute inset-0 bg-[#0f0e0e] rounded-2xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
-              <div className="relative flex items-center justify-center gap-2 bg-[#D9FF42] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+              <div className="relative flex items-center justify-center gap-2 bg-[#BCCE75] border-4 border-[#0f0e0e] px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold font-display uppercase tracking-wide transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
                 <Mail className="w-7 h-7" />
                 Email Us
               </div>
@@ -441,28 +441,28 @@ const CTASection = () => {
 const achievements = [
   {
     icon: Users,
-    color: "#D9FF42",
+    color: "#BCCE75",
     value: "300+",
     label: "Students coached",
     note: "Over the last 3 years to their target scores.",
   },
   {
     icon: Target,
-    color: "#FF82A9",
+    color: "#FBDAE3",
     value: "90%+",
     label: "Reach 1500+",
     note: "The overwhelming majority hit a top-tier score.",
   },
   {
     icon: Trophy,
-    color: "#4287FF",
+    color: "#DBE8FB",
     value: "20%+",
     label: "Reach 1550+",
     note: "One in five lands in elite-admission territory.",
   },
   {
     icon: CalendarDays,
-    color: "#FF6B35",
+    color: "#FBE1D3",
     value: "2023",
     label: "Established",
     note: "Built and battle-tested since Summer 2023.",
@@ -507,25 +507,25 @@ const AchievementsBand = () => {
 const sellingPoints = [
   {
     icon: Award,
-    color: "#D9FF42",
+    color: "#BCCE75",
     title: "Perfect-scorer teachers",
     body: "Every class is led by a perfect scorer. Highly trained, well known, and trusted by parents and students alike. Your referrals learn from the very top.",
   },
   {
     icon: MonitorPlay,
-    color: "#4287FF",
+    color: "#DBE8FB",
     title: "Online-first, hybrid courses",
     body: "Live online meeting classes powered by Ronan SAT's latest technology, with offline classes arriving later. Authentic full-length exams that replicate the real Digital SAT, plus targeted sectional practice.",
   },
   {
     icon: LineChart,
-    color: "#FF82A9",
+    color: "#FBDAE3",
     title: "Data-driven, personalised",
     body: "Advanced analytics track every student by topic, difficulty, and question type. Step-by-step explanations for every mistake and an AI tutor for follow-up questions, so the plan adapts to each student.",
   },
   {
     icon: Clock,
-    color: "#FF6B35",
+    color: "#FBE1D3",
     title: "Available 24/7",
     body: "Teachers are hard-working, diligent, and ready to guide students every step of the way, readily available around the clock for the full length of the course.",
   },
@@ -535,7 +535,7 @@ const AboutSection = () => {
   return (
     <section className="py-24 px-6 max-w-7xl mx-auto">
       <div className="max-w-3xl">
-        <div className="inline-flex items-center gap-2 bg-[#D9FF42] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
+        <div className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
           <GraduationCap className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">
             Who you&apos;re referring to
@@ -544,7 +544,7 @@ const AboutSection = () => {
         <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-balance mb-6">
           Meet{" "}
           <span
-            className="text-[#FF82A9] text-outline"
+            className="text-[#FBDAE3] text-outline"
             style={{ WebkitTextStroke: "2px #0f0e0e" }}
           >
             Ronan SAT.
@@ -615,14 +615,14 @@ const HallOfFame = () => {
   return (
     <section id="hall-of-fame" className="py-24 bg-[#0f0e0e] text-[#f4efe6]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="inline-flex items-center gap-2 bg-[#D9FF42] text-[#0f0e0e] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
+        <div className="inline-flex items-center gap-2 bg-[#BCCE75] text-[#0f0e0e] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-6 brutal-shadow-sm">
           <Trophy className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">
             Real results
           </span>
         </div>
         <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight mb-4">
-          Hall of <span className="text-[#D9FF42]">fame.</span>
+          Hall of <span className="text-[#BCCE75]">fame.</span>
         </h2>
         <p className="text-lg md:text-xl font-medium text-gray-300 mb-16 max-w-2xl">
           Straight from our Facebook. Real students, real score gains, these are
@@ -675,7 +675,7 @@ const HallOfFame = () => {
             href={FACEBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#D9FF42] hover:underline"
+            className="text-[#BCCE75] hover:underline"
           >
             facebook.com/ronansat
           </Link>
@@ -689,7 +689,7 @@ const HallOfFame = () => {
 const AssuranceNote = () => {
   return (
     <section className="py-8 px-6 max-w-5xl mx-auto">
-      <div className="bg-[#D9FF42] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start">
+      <div className="bg-[#BCCE75] border-4 border-[#0f0e0e] rounded-3xl brutal-shadow p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start">
         <div className="border-2 border-[#0f0e0e] p-4 rounded-full inline-flex brutal-shadow-sm shrink-0 bg-white">
           <Heart className="w-7 h-7 text-[#0f0e0e]" />
         </div>
@@ -710,7 +710,7 @@ const AssuranceNote = () => {
 
 export default function ReferralPartner() {
   return (
-    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#D9FF42] selection:text-[#0f0e0e] overflow-x-hidden">
+    <div className="min-h-screen bg-[#f4efe6] selection:bg-[#BCCE75] selection:text-[#0f0e0e] overflow-x-hidden">
       <SiteNav />
       <main>
         <PartnerHero />
