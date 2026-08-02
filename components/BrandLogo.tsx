@@ -8,6 +8,7 @@ type BrandLogoProps = {
   withWordmark?: boolean;
   size?: number;
   priority?: boolean;
+  variant?: "default" | "white";
 };
 
 export default function BrandLogo({
@@ -17,6 +18,7 @@ export default function BrandLogo({
   withWordmark = true,
   size = 32,
   priority = false,
+  variant = "default",
 }: BrandLogoProps) {
   return (
     <div className={clsx("flex items-center gap-2", className)}>
@@ -25,7 +27,7 @@ export default function BrandLogo({
         style={{ width: size, height: size }}
       >
         <Image
-          src="/brand/logo.svg"
+          src={variant === "white" ? "/brand/logo-white.svg" : "/brand/logo.svg"}
           alt="Ronan SAT logo"
           width={size}
           height={size}

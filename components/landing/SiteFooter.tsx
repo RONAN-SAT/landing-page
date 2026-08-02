@@ -20,6 +20,7 @@ export default function SiteFooter() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-white/20 pb-12">
         <div className="max-w-sm">
           <BrandLogo
+            variant="white"
             size={40}
             labelClassName="text-3xl"
             iconClassName="w-10 h-10"

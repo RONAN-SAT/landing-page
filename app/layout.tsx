@@ -17,7 +17,8 @@ const bodyFont = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Ronan SAT | Break Your Score Ceiling",
+  applicationName: "RONAN SAT Platform",
+  title: "RONAN SAT Platform | Break Your Score Ceiling",
   description: "The most intuitive, beautifully designed SAT study suite on the internet.",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],

@@ -1,10 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
+
+export const metadata: Metadata = {
+  title: "RONAN SAT Platform — Terms of Service",
+  description: "Terms governing your use of the RONAN SAT Platform.",
+};
 
 const sections = [
   {
     title: "Acceptance of Terms",
-    body: "By accessing or using Ronan SAT, you agree to these Terms of Service. If you do not agree, do not use the service.",
+    body: "By accessing or using the RONAN SAT Platform, you agree to these Terms of Service. If you do not agree, do not use the service.",
   },
   {
     title: "Eligibility and Accounts",
@@ -12,7 +18,7 @@ const sections = [
   },
   {
     title: "Google Sign-In (OAuth)",
-    body: "Ronan SAT supports Google OAuth for sign-in only. We request only the standard identity scopes needed for authentication (openid, email, and profile) and do not request special or restricted Google permissions.",
+    body: "The RONAN SAT Platform supports Google OAuth for sign-in only. We request only the standard identity scopes needed for authentication (openid, email, and profile) and do not request special or restricted Google permissions.",
   },
   {
     title: "Permitted Use",
@@ -20,7 +26,7 @@ const sections = [
   },
   {
     title: "Content and Intellectual Property",
-    body: "All platform content, software, branding, and materials are owned by Ronan SAT or its licensors and are protected by applicable intellectual property laws. You receive a limited, non-transferable license to use the service.",
+    body: "All platform content, software, branding, and materials are owned by RONAN SAT Platform or its licensors and are protected by applicable intellectual property laws. You receive a limited, non-transferable license to use the service.",
   },
   {
     title: "Subscriptions and Billing",
@@ -32,7 +38,7 @@ const sections = [
   },
   {
     title: "Disclaimers and Liability",
-    body: "The service is provided on an as-is and as-available basis. To the maximum extent permitted by law, Ronan SAT disclaims warranties and is not liable for indirect, incidental, or consequential damages.",
+    body: "The service is provided on an as-is and as-available basis. To the maximum extent permitted by law, RONAN SAT Platform disclaims warranties and is not liable for indirect, incidental, or consequential damages.",
   },
   {
     title: "Changes to Terms",
@@ -66,10 +72,10 @@ export default function TermsPage() {
               Legal
             </div>
             <h1 className="mt-6 text-5xl md:text-7xl font-display font-black uppercase leading-[0.95] tracking-tight">
-              Terms of Service
+              RONAN SAT Platform Terms of Service
             </h1>
             <p className="mt-5 text-lg md:text-xl font-medium text-[#0f0e0e]/80 max-w-3xl">
-              Effective date: April 20, 2026. These terms govern your use of Ronan SAT and related services.
+              Effective date: April 20, 2026. These terms govern your use of the RONAN SAT Platform and related services.
             </p>
           </div>
 

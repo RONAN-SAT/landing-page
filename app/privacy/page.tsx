@@ -1,10 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
+
+export const metadata: Metadata = {
+  title: "RONAN SAT Platform — Privacy Policy",
+  description: "How the RONAN SAT Platform collects, uses, and protects personal information.",
+};
 
 const sections = [
   {
     title: "What We Collect",
-    body: "When you create or use an account, we collect the information needed to run Ronan SAT: your name, email address, basic profile details, account preferences, and learning activity in the product.",
+    body: "When you create or use an account, we collect the information needed to run the RONAN SAT Platform: your name, email address, basic profile details, account preferences, and learning activity in the product.",
   },
   {
     title: "Google Sign-In (OAuth)",
@@ -32,7 +38,7 @@ const sections = [
   },
   {
     title: "Children's Privacy",
-    body: "Ronan SAT is intended for students and families. If we learn that we collected personal information from a child in violation of applicable law, we will take steps to delete that information.",
+    body: "The RONAN SAT Platform is intended for students and families. If we learn that we collected personal information from a child in violation of applicable law, we will take steps to delete that information.",
   },
   {
     title: "Contact",
@@ -62,10 +68,10 @@ export default function PrivacyPage() {
               Legal
             </div>
             <h1 className="mt-6 text-5xl md:text-7xl font-display font-black uppercase leading-[0.95] tracking-tight">
-              Privacy Policy
+              RONAN SAT Platform Privacy Policy
             </h1>
             <p className="mt-5 text-lg md:text-xl font-medium text-[#0f0e0e]/80 max-w-3xl">
-              Effective date: April 20, 2026. This policy explains how Ronan SAT collects, uses, and protects personal information when you use our website and services.
+              Effective date: April 20, 2026. This policy explains how the RONAN SAT Platform collects, uses, and protects personal information when you use our website and services.
             </p>
           </div>
 
