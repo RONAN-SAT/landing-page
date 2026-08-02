@@ -75,7 +75,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-10 text-xl md:text-2xl max-w-2xl font-medium text-[#0f0e0e]/80 text-balance"
           >
-            RONAN SAT Platform brings together full test simulations, aggressive analytics, a vocab builder that plays like a game, and a community that drills with you. Crush the SAT without losing your mind.
+            Full test simulations, aggressive analytics, a vocab builder that plays like a game, and a community that drills with you. Crush the SAT without losing your mind.
           </motion.p>
 
           <motion.div
