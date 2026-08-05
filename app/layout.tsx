@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Bricolage_Grotesque, Be_Vietnam_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -32,6 +33,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8623345713052877"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${displayFont.variable} ${bodyFont.variable} antialiased bg-[#f4efe6] text-[#0f0e0e] selection:bg-[#BCCE75] selection:text-[#0f0e0e]`}>
         {children}
         <Analytics />
