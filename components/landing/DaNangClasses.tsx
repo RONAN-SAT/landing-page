@@ -31,7 +31,7 @@ const REGISTER_URL =
   "https://learn.ronansat.com/forms/frm_2cb1a99f4680420f83fb2862cdc34031";
 const TEACHER_FB_URL = "https://www.facebook.com/TVMDrh";
 const SEATS_TOTAL = 15;
-const SEATS_TAKEN = 8;
+const SEATS_TAKEN = 10;
 
 const DaNangHero = () => {
   return (
@@ -95,7 +95,7 @@ const DaNangHero = () => {
 
 const stats = [
   { value: "1590", label: "Điểm SAT của giáo viên" },
-  { value: "10000+", label: "Câu hỏi trong ngân hàng đề" },
+  { value: "17000+", label: "Câu hỏi trong ngân hàng đề" },
   { value: `${SEATS_TAKEN}/${SEATS_TOTAL}`, label: "Sĩ số lớp hiện tại" },
 ];
 
