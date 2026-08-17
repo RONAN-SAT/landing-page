@@ -78,7 +78,7 @@ export default function DaNangClassesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <DaNangClasses />
+      <DaNangClasses variant="da-nang" />
     </>
   );
 }

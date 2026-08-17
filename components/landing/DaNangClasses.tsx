@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import SiteNav from "@/components/landing/SiteNav";
 import SiteFooter from "@/components/landing/SiteFooter";
 import { FacebookIcon } from "@/components/landing/icons";
+import { SEATS_TOTAL, SEATS_TAKEN } from "@/lib/seats";
 import {
   Target,
   Plane,
@@ -18,6 +19,7 @@ import {
   UserCheck,
   BadgeCheck,
   MapPin,
+  Layers,
   TrendingUp,
   Trophy,
   Sparkles,
@@ -30,10 +32,65 @@ import {
 const REGISTER_URL =
   "https://learn.ronansat.com/forms/frm_2cb1a99f4680420f83fb2862cdc34031";
 const TEACHER_FB_URL = "https://www.facebook.com/TVMDrh";
-const SEATS_TOTAL = 15;
-const SEATS_TAKEN = 13;
 
-const DaNangHero = () => {
+// This component is shared (near-symlinked) between two classes that run as
+// the same cohort and only differ in name/emphasis:
+//   - "da-nang": emphasises being a Đà Nẵng-local, in-person-quality class.
+//   - "foundation": emphasises being a comprehensive, from-the-ground-up class.
+// Keep both variants' copy here so the two pages stay structurally identical
+// and only diverge in the strings below.
+export type ClassVariant = "da-nang" | "foundation";
+
+const copy = {
+  "da-nang": {
+    heroBadge: "Luyện thi SAT chuyên sâu · Đà Nẵng",
+    heroBadgeIcon: MapPin,
+    heroTitleLine1: "SAT chuẩn quốc tế,",
+    heroTitleLine2: "ngay tại",
+    heroHighlight: "Đà Nẵng.",
+    whyNowIntro:
+      "SAT không còn là chuyện riêng của Hà Nội hay TP. Hồ Chí Minh. Đây là thời điểm để học sinh Đà Nẵng vượt lên.",
+    localBadge: "Tự hào Đà Nẵng",
+    localBadgeIcon: MapPin,
+    localTitle: (
+      <>
+        Lớp SAT chuyên sâu mà con{" "}
+        <span className="text-[#BCCE75]">xứng đáng có</span> — không cần rời
+        thành phố.
+      </>
+    ),
+    localBody:
+      "Ronan SAT xây dựng lớp học với một mục tiêu rõ ràng: đưa chất lượng luyện SAT ngang tầm các trung tâm lớn nhất cả nước về với học sinh Đà Nẵng.",
+    tuitionIntro:
+      "Chất lượng cao không có nghĩa là đắt đỏ. Ronan SAT giữ học phí hợp lý để nhiều gia đình Đà Nẵng tiếp cận được lớp SAT chuyên sâu.",
+  },
+  foundation: {
+    heroBadge: "Luyện thi SAT toàn diện · Từ nền tảng",
+    heroBadgeIcon: Layers,
+    heroTitleLine1: "SAT chuẩn quốc tế,",
+    heroTitleLine2: "xây từ",
+    heroHighlight: "nền tảng.",
+    whyNowIntro:
+      "SAT không đòi hỏi bạn phải giỏi sẵn. Đây là thời điểm để bắt đầu đúng cách, từ những nền tảng vững chắc nhất.",
+    localBadge: "Học toàn diện",
+    localBadgeIcon: Layers,
+    localTitle: (
+      <>
+        Lớp SAT toàn diện mà con{" "}
+        <span className="text-[#BCCE75]">xứng đáng có</span> — bắt đầu từ nền
+        tảng, đi đến điểm cao.
+      </>
+    ),
+    localBody:
+      "Ronan SAT xây dựng lớp học với một mục tiêu rõ ràng: củng cố toàn diện từ nền tảng — ngữ pháp, đọc hiểu, toán cơ bản — trước khi tăng tốc lên các kỹ năng nâng cao.",
+    tuitionIntro:
+      "Chất lượng cao không có nghĩa là đắt đỏ. Ronan SAT giữ học phí hợp lý để nhiều gia đình tiếp cận được lớp SAT toàn diện, xây dựng từ nền tảng.",
+  },
+} as const;
+
+const DaNangHero = ({ variant }: { variant: ClassVariant }) => {
+  const c = copy[variant];
+  const BadgeIcon = c.heroBadgeIcon;
   return (
     <section className="relative pt-36 pb-20 px-6 overflow-hidden bg-grid-pattern">
       <motion.div
@@ -51,19 +108,19 @@ const DaNangHero = () => {
           transition={{ type: "spring", bounce: 0.5 }}
           className="inline-flex items-center gap-2 bg-[#BCCE75] border-2 border-[#0f0e0e] px-4 py-2 rounded-full mb-8 brutal-shadow-sm rotate-[-2deg]"
         >
-          <MapPin className="w-4 h-4" />
+          <BadgeIcon className="w-4 h-4" />
           <span className="font-bold text-sm uppercase tracking-wider">
-            Luyện thi SAT chuyên sâu · Đà Nẵng
+            {c.heroBadge}
           </span>
         </motion.div>
 
         <h1 className="text-[2.75rem] md:text-[5rem] leading-[0.98] font-display font-black tracking-tighter text-balance">
-          SAT chuẩn quốc tế,
+          {c.heroTitleLine1}
           <br />
-          ngay tại{" "}
+          {c.heroTitleLine2}{" "}
           <span className="relative inline-block mt-3">
             <span className="relative z-10 bg-[#FBDAE3] text-[#0f0e0e] px-6 py-2 border-4 border-[#0f0e0e] rounded-2xl brutal-shadow-lg inline-block transform -rotate-2">
-              Đà Nẵng.
+              {c.heroHighlight}
             </span>
           </span>
         </h1>
@@ -125,7 +182,8 @@ const StatsBand = () => {
   );
 };
 
-const WhyNowSection = () => {
+const WhyNowSection = ({ variant }: { variant: ClassVariant }) => {
+  const c = copy[variant];
   const points = [
     {
       icon: TrendingUp,
@@ -155,8 +213,7 @@ const WhyNowSection = () => {
         </span>
       </h2>
       <p className="text-lg md:text-xl font-medium text-[#0f0e0e]/70 max-w-2xl mb-16">
-        SAT không còn là chuyện riêng của Hà Nội hay TP. Hồ Chí Minh. Đây là
-        thời điểm để học sinh Đà Nẵng vượt lên.
+        {c.whyNowIntro}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {points.map((p, i) => (
@@ -304,7 +361,9 @@ const ScoreLadderSection = () => {
   );
 };
 
-const LocalSection = () => {
+const LocalSection = ({ variant }: { variant: ClassVariant }) => {
+  const c = copy[variant];
+  const BadgeIcon = c.localBadgeIcon;
   return (
     <section className="py-12 px-6 max-w-5xl mx-auto">
       <motion.div
@@ -316,18 +375,14 @@ const LocalSection = () => {
         <div className="absolute -top-12 -right-12 w-44 h-44 bg-[#BCCE75] rounded-full border-4 border-[#0f0e0e] mix-blend-overlay"></div>
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2 bg-[#BCCE75] text-[#0f0e0e] border-2 border-[#0f0e0e] px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider mb-6">
-            <Trophy className="w-4 h-4" />
-            Tự hào Đà Nẵng
+            <BadgeIcon className="w-4 h-4" />
+            {c.localBadge}
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tight leading-[1.05]">
-            Lớp SAT chuyên sâu mà con{" "}
-            <span className="text-[#BCCE75]">xứng đáng có</span> — không cần rời
-            thành phố.
+            {c.localTitle}
           </h2>
           <p className="mt-6 text-lg md:text-xl font-medium text-gray-300 max-w-2xl">
-            Ronan SAT xây dựng lớp học với một mục tiêu rõ ràng: đưa chất lượng
-            luyện SAT ngang tầm các trung tâm lớn nhất cả nước về với học sinh
-            Đà Nẵng.
+            {c.localBody}
           </p>
         </div>
       </motion.div>
@@ -395,7 +450,8 @@ const FeaturesSection = () => {
   );
 };
 
-const TuitionSection = () => {
+const TuitionSection = ({ variant }: { variant: ClassVariant }) => {
+  const c = copy[variant];
   const points = [
     {
       icon: Wallet,
@@ -420,8 +476,7 @@ const TuitionSection = () => {
         </span>
       </h2>
       <p className="text-lg md:text-xl font-medium text-[#0f0e0e]/70 max-w-2xl mb-16">
-        Chất lượng cao không có nghĩa là đắt đỏ. Ronan SAT giữ học phí hợp lý để
-        nhiều gia đình Đà Nẵng tiếp cận được lớp SAT chuyên sâu.
+        {c.tuitionIntro}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {points.map((p, i) => (
@@ -716,7 +771,11 @@ const EnrollSection = () => {
   );
 };
 
-export default function DaNangClasses() {
+export default function DaNangClasses({
+  variant = "da-nang",
+}: {
+  variant?: ClassVariant;
+}) {
   return (
     <div
       lang="vi"
@@ -724,14 +783,14 @@ export default function DaNangClasses() {
     >
       <SiteNav />
       <main>
-        <DaNangHero />
+        <DaNangHero variant={variant} />
         <StatsBand />
-        <WhyNowSection />
+        <WhyNowSection variant={variant} />
         <GoalsSection />
         <ScoreLadderSection />
-        <LocalSection />
+        <LocalSection variant={variant} />
         <FeaturesSection />
-        <TuitionSection />
+        <TuitionSection variant={variant} />
         <RealExamSection />
         <TeacherSection />
         <SeatsSection />

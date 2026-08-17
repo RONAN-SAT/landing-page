@@ -20,6 +20,12 @@ const classesLinks = [
     sub: "Lớp luyện thi SAT tại Đà Nẵng",
     lang: "vi",
   },
+  {
+    href: "/classes/foundation",
+    label: "Lớp học Foundation",
+    sub: "Lớp luyện thi SAT toàn diện từ nền tảng",
+    lang: "vi",
+  },
 ];
 
 const ClassesDropdown = () => {

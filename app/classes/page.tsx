@@ -88,6 +88,14 @@ const ClassesHero = () => {
           >
             🇻🇳 Lớp học SAT cho học sinh Đà Nẵng (Tiếng Việt)
           </Link>
+          <Link
+            href="/classes/foundation"
+            lang="vi"
+            hrefLang="vi"
+            className="inline-flex items-center gap-2 font-bold text-sm hover:underline decoration-2 underline-offset-4"
+          >
+            🇻🇳 Lớp học SAT toàn diện từ nền tảng (Tiếng Việt)
+          </Link>
         </div>
       </div>
     </section>

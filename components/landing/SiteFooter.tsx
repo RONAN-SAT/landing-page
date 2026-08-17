@@ -44,6 +44,7 @@ export default function SiteFooter() {
             <ul className="space-y-3 font-medium text-lg">
               <li><Link href="/classes" className="hover:text-[#FBDAE3] transition-colors">Classes</Link></li>
               <li><Link href="/classes/da-nang" lang="vi" className="hover:text-[#FBDAE3] transition-colors">Lớp học Đà Nẵng</Link></li>
+              <li><Link href="/classes/foundation" lang="vi" className="hover:text-[#FBDAE3] transition-colors">Lớp học Foundation</Link></li>
               <li><Link href="/referral" className="hover:text-[#FBDAE3] transition-colors">Referral Programme</Link></li>
               <li><Link href="/socials" className="hover:text-[#FBDAE3] transition-colors">Socials</Link></li>
             </ul>
