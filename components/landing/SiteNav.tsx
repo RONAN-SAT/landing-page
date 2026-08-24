@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 
@@ -97,6 +97,13 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
         >
           Home
         </Link>
+        <Link
+          href="/hall-of-fame"
+          onClick={onClose}
+          className="block px-5 py-4 font-bold text-sm hover:bg-[#BCCE75] transition-colors border-b-2 border-[#0f0e0e]"
+        >
+          Hall of Fame
+        </Link>
         {classesLinks.map((link) => (
           <Link
             key={link.href}
@@ -139,11 +146,29 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
 
 export default function SiteNav({ withBanner = false }: { withBanner?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    const delta = y - prev;
+    if (mobileOpen) {
+      setHidden(false);
+      return;
+    }
+    if (y < 140) {
+      setHidden(false);
+      return;
+    }
+    if (Math.abs(delta) < 2) return;
+    setHidden(delta > 0);
+  });
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: "-100%" }}
+      animate={{ y: hidden ? "-130%" : "0%" }}
+      transition={{ type: "spring", stiffness: 320, damping: 34 }}
       className={`fixed left-0 right-0 z-50 p-4 pointer-events-none ${withBanner ? "top-10" : "top-0"}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center bg-[#f4efe6]/90 backdrop-blur-md border-2 border-[#0f0e0e] rounded-2xl px-6 py-4 brutal-shadow-sm pointer-events-auto">
@@ -161,6 +186,12 @@ export default function SiteNav({ withBanner = false }: { withBanner?: boolean }
             className="hover:underline decoration-2 underline-offset-4"
           >
             Home
+          </Link>
+          <Link
+            href="/hall-of-fame"
+            className="hover:underline decoration-2 underline-offset-4"
+          >
+            HOF
           </Link>
           <ClassesDropdown />
           <Link
