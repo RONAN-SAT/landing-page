@@ -8,7 +8,7 @@ const PAGE_URL = "https://ronansat.com/hall-of-fame";
 export const metadata: Metadata = {
   title: "Hall of Fame | Ronan SAT",
   description:
-    "The Ronan SAT Hall of Fame — eight magazine covers, eight broken score ceilings. 1580, 1570, 1560 and more, scored by students across Vietnam.",
+    "The Ronan SAT Hall of Fame — nine magazine covers, nine broken score ceilings. 1580, 1570, 1560 and more, scored by students across Vietnam.",
   keywords: [
     "Ronan SAT Hall of Fame",
     "SAT 1580",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     siteName: "Ronan SAT",
     title: "Hall of Fame | Ronan SAT",
     description:
-      "Eight magazine covers. Eight broken score ceilings. Meet the Ronan SAT Hall of Fame.",
+      "Nine magazine covers. Nine broken score ceilings. Meet the Ronan SAT Hall of Fame.",
     images: [{ url: "/hall-of-fame/nguyen-minh-trang.jpg", width: 1440, height: 1800 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hall of Fame | Ronan SAT",
     description:
-      "Eight magazine covers. Eight broken score ceilings. Meet the Ronan SAT Hall of Fame.",
+      "Nine magazine covers. Nine broken score ceilings. Meet the Ronan SAT Hall of Fame.",
   },
 };
 

@@ -19,6 +19,15 @@ export const hallOfFame: HofEntry[] = [
     src: "/hall-of-fame/nguyen-minh-trang.jpg",
   },
   {
+    slug: "nguyen-thi-ha-phuong",
+    name: "Nguyễn Thị Hà Phương",
+    score: 1580,
+    detail: "790RW · 790M",
+    date: "June SAT '26",
+    school: "THPT Chuyên Nguyễn Trãi",
+    src: "/hall-of-fame/nguyen-thi-ha-phuong.jpg",
+  },
+  {
     slug: "dinh-ha-linh",
     name: "Đinh Hà Linh",
     score: 1570,
