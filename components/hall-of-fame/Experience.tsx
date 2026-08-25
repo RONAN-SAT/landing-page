@@ -44,6 +44,8 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLElement>(null);
   const deckRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const railInnerRef = useRef<HTMLDivElement>(null);
   const stageSlotRef = useRef<HTMLDivElement>(null);
   const burstRef = useRef<HTMLDivElement>(null);
   const auraRef = useRef<HTMLDivElement>(null);
@@ -88,6 +90,13 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
     slots: (["stage", ...Array.from({ length: Math.max(0, hallOfFame.length - 1) }, (_, i) => i + 1)] as SlotRef[]),
     swapping: new Set<number>(),
     st: null as ScrollTrigger | null | undefined,
+    listTop: -9999,
+    listBottom: Number.MAX_SAFE_INTEGER,
+    listFade: 48,
+    listScrollTop: 0,
+    listMaxScroll: 0,
+    railP: 0,
+    lastScroll: 0,
   });
 
   const fProxy = useRef({ v: 0 });
@@ -117,6 +126,27 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
     return { x: r.cx - cw / 2, y: r.cy - e.cardH / 2, scale: r.scale, rotation: 0, z: 10 };
   }, []);
 
+  const slotVisibility = useCallback((y: number) => {
+    const e = engine.current;
+    if (e.listBottom <= e.listTop) return 1;
+    // GSAP scales around the element center, so a posed card's visual center is y + cardH/2
+    const cy = y + e.cardH / 2;
+    const fade = Math.max(1, e.listFade);
+    // Fade strength follows the rail's scroll position: no hidden content above/below
+    // means no fade, so edge covers stay fully opaque until they actually scroll out.
+    const topStrength = clamp01(e.listScrollTop / fade);
+    const bottomStrength = clamp01((e.listMaxScroll - e.listScrollTop) / fade);
+    const topV =
+      cy >= e.listTop
+        ? 1 - topStrength * (1 - clamp01((cy - e.listTop) / fade))
+        : clamp01((cy - (e.listTop - fade)) / fade);
+    const bottomV =
+      cy <= e.listBottom
+        ? 1 - bottomStrength * (1 - clamp01((e.listBottom - cy) / fade))
+        : clamp01((e.listBottom + fade - cy) / fade);
+    return clamp01(Math.min(topV, bottomV));
+  }, []);
+
   const measure = useCallback(() => {
     const e = engine.current;
     const deck = deckRef.current;
@@ -131,6 +161,28 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       cx: ar.left + ar.width / 2 - dr.left,
       cy: ar.top + ar.height / 2 - dr.top,
     };
+    const lr = listRef.current?.getBoundingClientRect();
+    e.listTop = lr ? lr.top - dr.top : -9999;
+    e.listBottom = lr ? lr.bottom - dr.top : Number.MAX_SAFE_INTEGER;
+    e.listFade = lr ? Math.max(24, lr.height * 0.1) : 48;
+    // The first usable thumbnail is slot 1 (slot 0 belongs to the staged
+    // cover). Center it at rest, and leave enough tail room to center the last
+    // thumbnail too. The padding, rather than a cover, crosses each fade band.
+    const innerEl = railInnerRef.current;
+    if (innerEl && lr) {
+      const rowH = slotRefs.current[0]?.getBoundingClientRect().height ?? 0;
+      const gap = Number.parseFloat(getComputedStyle(innerEl).rowGap) || 0;
+      const firstRailSlot = hallOfFame.length > 1 ? 1 : 0;
+      const firstCenter = (firstRailSlot + 0.5) * rowH + firstRailSlot * gap;
+      const topPad = Math.max(e.listFade, lr.height / 2 - firstCenter);
+      const bottomPad = Math.max(e.listFade, lr.height / 2 - rowH / 2);
+      const top = `${Math.round(topPad)}px`;
+      const bottom = `${Math.round(bottomPad)}px`;
+      if (innerEl.style.paddingTop !== top || innerEl.style.paddingBottom !== bottom) {
+        innerEl.style.paddingTop = top;
+        innerEl.style.paddingBottom = bottom;
+      }
+    }
     e.gridRects = slotRefs.current.map((el) => {
       if (!el) return null;
       const r = el.getBoundingClientRect();
@@ -168,15 +220,42 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       const to = poseFor(i, e.slots[i]);
       const [s, en] = fanWindow(i);
       const t = smooth(clamp01((e.f - s) / (en - s)));
-      gsap.set(el, {
+      const patch: gsap.TweenVars = {
         x: lerp(from.x, to.x, t),
         y: lerp(from.y, to.y, t) - Math.sin(t * Math.PI) * (26 + (i % 3) * 14),
         scale: lerp(from.scale, to.scale, t),
         rotation: lerp(from.rotation, to.rotation, t),
         zIndex: t >= 1 ? to.z : from.z,
-      });
+      };
+      if (e.slots[i] !== "stage") {
+        patch.opacity = lerp(1, slotVisibility(to.y), t);
+      }
+      gsap.set(el, patch);
     });
-  }, [poseFor]);
+  }, [poseFor, slotVisibility]);
+
+  const setRail = useCallback((p: number) => {
+    const e = engine.current;
+    const win = listRef.current;
+    const inner = railInnerRef.current;
+    if (!win || !inner) return;
+    const max = Math.max(0, inner.scrollHeight - win.clientHeight);
+    const pr = clamp01(p);
+    e.railP = pr;
+    e.listScrollTop = max * pr;
+    e.listMaxScroll = max;
+    gsap.set(inner, { y: -e.listScrollTop });
+  }, []);
+
+  const getScrollMetrics = useCallback(() => {
+    const win = listRef.current;
+    const inner = railInnerRef.current;
+    const rail = win && inner ? Math.max(0, inner.scrollHeight - win.clientHeight) : 0;
+    // Give the stack its own runway, then move the rail one page-scroll pixel
+    // per content pixel so adding covers naturally lengthens the pinned scene.
+    const unfold = Math.max(520, window.innerHeight * 0.75);
+    return { rail, unfold, total: unfold + rail };
+  }, []);
 
   useEffect(() => {
     aspectsRef.current = aspectArr;
@@ -201,6 +280,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       const g = e.slots[incoming] as number;
       const toStage = poseFor(incoming, "stage");
       const toGrid = poseFor(outgoing, g);
+      const outVis = slotVisibility(toGrid.y);
       const inX = Number(gsap.getProperty(inEl, "x"));
       const inY = Number(gsap.getProperty(inEl, "y"));
       const inS = Number(gsap.getProperty(inEl, "scale"));
@@ -213,7 +293,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       e.slots[incoming] = "stage";
       e.slots[outgoing] = g;
       activeRef.current = incoming;
-      gsap.set(inEl, { zIndex: 60 });
+      gsap.set(inEl, { zIndex: 60, opacity: 1 });
       gsap.set(outEl, { zIndex: 55 });
 
       const lift = Math.min(130, window.innerHeight * 0.13);
@@ -242,7 +322,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
           duration: 0.4,
           ease: "power2.in",
         }, 0.08)
-        .to(outEl, { x: toGrid.x, y: toGrid.y, scale: toGrid.scale, duration: 0.48, ease: "power2.out" }, 0.48);
+        .to(outEl, { x: toGrid.x, y: toGrid.y, scale: toGrid.scale, opacity: outVis, duration: 0.48, ease: "power2.out" }, 0.48);
 
       sizeDressing(incoming, 0.85);
 
@@ -287,7 +367,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
         });
       }
     },
-    [applyPositions, poseFor, sizeDressing]
+    [applyPositions, poseFor, sizeDressing, slotVisibility]
   );
 
   useEffect(() => {
@@ -306,6 +386,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
   useEffect(() => {
     const e = engine.current;
     e.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setRail(0);
     measure();
     e.ready = true;
     applyPositions();
@@ -321,6 +402,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
     }
 
     const remeasure = () => {
+      setRail(engine.current.railP);
       measure();
       applyPositions();
     };
@@ -337,7 +419,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       e.st?.kill();
       e.ready = false;
     };
-  }, [measure, applyPositions]);
+  }, [measure, applyPositions, setRail]);
 
   useEffect(() => {
     if (!active || introRef.current) return;
@@ -350,6 +432,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       fProxy.current.v = 1;
       e.introDone = true;
       cardRefs.current.forEach((el) => el && gsap.set(el, { opacity: 1 }));
+      applyPositions();
       gsap.set([infoRef.current, controlsRef.current, mastheadRef.current], { opacity: 1 });
       gsap.set(heroRef.current, { opacity: 0 });
       gsap.set(hintRef.current, { opacity: 0 });
@@ -363,20 +446,27 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       ease: "none",
       onUpdate: () => {
         if (!e.introDone) return;
-        e.f = clamp01(fp.v / 0.45);
+        const scroll = getScrollMetrics();
+        const travelled = fp.v * scroll.total;
+        e.f = clamp01(travelled / scroll.unfold);
+        e.lastScroll = performance.now();
+        setRail(scroll.rail > 0 ? clamp01((travelled - scroll.unfold) / scroll.rail) : 0);
+        measure();
         applyPositions();
       },
       scrollTrigger: {
         trigger: pinRef.current,
         start: "top top",
-        end: "+=170%",
+        end: () => `+=${Math.ceil(getScrollMetrics().total)}`,
         pin: true,
         scrub: 0.6,
         anticipatePin: 1,
         invalidateOnRefresh: true,
-        onUpdate: (self) => {
+        onUpdate: () => {
           if (!e.introDone) return;
-          const p = self.progress;
+          // Preserve the original reveal choreography inside the unfold phase;
+          // its timing must not stretch when more thumbnails extend the rail.
+          const p = clamp01(e.f * 0.45);
           gsap.set(heroRef.current, { opacity: 1 - clamp01(p / 0.22), scale: 1 - clamp01(p / 0.22) * 0.06 });
           gsap.set(hintRef.current, { opacity: 1 - clamp01(p / 0.1) });
           gsap.set(mastheadRef.current, { opacity: clamp01((p - 0.14) / 0.16), y: (1 - clamp01((p - 0.14) / 0.16)) * -14 });
@@ -418,7 +508,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
       tl.kill();
       introRef.current = null;
     };
-  }, [active, applyPositions]);
+  }, [active, applyPositions, getScrollMetrics, measure, setRail]);
 
   useEffect(() => {
     if (firstInfoRun.current) {
@@ -456,6 +546,9 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
   const onCardEnter = (i: number) => () => {
     const e = engine.current;
     if (e.reduced || e.f < 1 || e.slots[i] === "stage" || e.swapping.size) return;
+    // Ignore hover while the page is scrolling — covers stream past a
+    // stationary cursor and enter/leave would flicker the scale.
+    if (performance.now() - e.lastScroll < 200) return;
     const el = innerRefs.current[i];
     if (el) gsap.to(el, { scale: 1.07, duration: 0.35, ease: "power2.out" });
   };
@@ -475,8 +568,13 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
   const onCardClick = (i: number) => () => {
     const e = engine.current;
     if (e.f < 1 || e.swapping.size) return;
-    if (e.slots[i] === "stage") swapTo((activeRef.current + 1) % hallOfFame.length);
-    else swapTo(i);
+    if (e.slots[i] === "stage") {
+      swapTo((activeRef.current + 1) % hallOfFame.length);
+      return;
+    }
+    const pose = poseFor(i, e.slots[i]);
+    if (slotVisibility(pose.y) < 0.35) return;
+    swapTo(i);
   };
 
   const entry = hallOfFame[activeIdx];
@@ -524,23 +622,29 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
           </div>
         </div>
 
-        <div className="absolute inset-0 z-20 flex flex-col items-center gap-2 px-4 pb-20 pt-20 md:flex-row md:items-stretch md:gap-6 lg:gap-8 md:px-6 lg:px-10 md:pb-16 md:pt-28">
-          {/* Left thumbnail deck — adapts to any count by filling a fixed height with auto-rows (cards shrink to fit, no clip) */}
-          <div className="order-3 flex w-full shrink-0 flex-col md:order-1 md:w-[16rem] lg:w-[18rem] md:max-h-[56vh] max-h-[30vh] md:h-[56vh] self-stretch">
+        <div className="absolute inset-0 z-20 flex flex-col items-center gap-2 px-4 pb-20 pt-20 md:flex-row md:gap-6 lg:gap-8 md:px-6 lg:px-10 md:pb-16 md:pt-28">
+          {/* Left thumbnail rail — single column, driven by page scroll; fades only where content is hidden */}
+          <div className="order-3 flex w-full shrink-0 justify-center md:order-1 md:w-[8rem] md:justify-start lg:w-[9rem]">
             <div
-              className={`grid h-full w-full min-h-0 gap-2 md:gap-3 grid-cols-4 overflow-hidden auto-rows-fr ${hallOfFame.length > 12 ? "md:grid-cols-3" : "md:grid-cols-2"}`}
+              ref={listRef}
+              className="relative flex max-h-[22vh] w-fit flex-col items-center overflow-hidden md:max-h-[58vh]"
             >
-              {hallOfFame.map((m, i) => (
-                <div key={m.slug} className="flex min-h-0 w-full h-full items-center justify-center">
+              <div ref={railInnerRef} className="flex w-full flex-col items-center gap-2 md:gap-3">
+                {hallOfFame.map((m, i) => (
                   <div
-                    ref={(el) => {
-                      slotRefs.current[i] = el;
-                    }}
-                    className="h-full max-h-full"
-                    style={{ aspectRatio: String(aspectArr[i]) }}
-                  />
-                </div>
-              ))}
+                    key={m.slug}
+                    className="flex h-14 w-full shrink-0 items-center justify-center md:h-24 lg:h-28"
+                  >
+                    <div
+                      ref={(el) => {
+                        slotRefs.current[i] = el;
+                      }}
+                      className="h-full"
+                      style={{ aspectRatio: String(aspectArr[i]) }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
