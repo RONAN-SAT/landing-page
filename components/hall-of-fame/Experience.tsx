@@ -13,16 +13,25 @@ gsap.registerPlugin(ScrollTrigger);
 type Pose = { x: number; y: number; scale: number; rotation: number; z: number };
 type SlotRef = "stage" | number;
 
-const STACK_ROT = [-6, 4, -3, 6, -5, 3, -7, 4];
+const STACK_ROT_BASE = [-6, 4, -3, 6, -5, 3, -7, 4];
+const getStackRot = (i: number) => STACK_ROT_BASE[i % STACK_ROT_BASE.length];
 const pad2 = (n: number) => String(n).padStart(2, "0");
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const smooth = (t: number) => t * t * (3 - 2 * t);
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 const fanWindow = (i: number): [number, number] => {
+  const n = hallOfFame.length;
+  if (n <= 1) return [0, 1];
   if (i === 0) return [0.02, 0.5];
-  const s = 0.16 + (i - 1) * 0.055;
-  return [s, s + 0.36];
+  const count = n - 1;
+  // Distribute windows evenly for any count so last window ends near 0.96
+  const minStart = 0.16;
+  const maxStart = 0.94 - 0.36; // largest start so end <= 0.94
+  const range = Math.max(0, maxStart - minStart);
+  const step = count <= 1 ? 0 : range / Math.max(1, count - 1);
+  const s = minStart + (i - 1) * step;
+  return [s, Math.min(1, s + 0.36)];
 };
 
 type Props = {
@@ -76,7 +85,7 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
     stageAnchor: { cx: 0, cy: 0 },
     gridRects: [] as ({ cx: number; cy: number; scale: number } | null)[],
     stackPoses: [] as Pose[],
-    slots: ["stage", 1, 2, 3, 4, 5, 6, 7] as SlotRef[],
+    slots: (["stage", ...Array.from({ length: Math.max(0, hallOfFame.length - 1) }, (_, i) => i + 1)] as SlotRef[]),
     swapping: new Set<number>(),
     st: null as ScrollTrigger | null | undefined,
   });
@@ -139,8 +148,8 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
         x: dr.width / 2 - e.cardWs[i] / 2 + i * 8 - 26,
         y: dr.height * 0.82 - e.cardH / 2 + i * 9 - 30,
         scale,
-        rotation: STACK_ROT[i],
-        z: 18 - i,
+        rotation: getStackRot(i),
+        z: Math.max(1, 30 - i),
       };
     });
     cardRefs.current.forEach((el, i) => {
@@ -515,22 +524,24 @@ export default function HallOfFameExperience({ active, colors, dims }: Props) {
           </div>
         </div>
 
-        <div className="absolute inset-0 z-20 flex flex-col items-center gap-2 px-4 pb-20 pt-20 md:flex-row md:gap-8 md:px-10 md:pb-16 md:pt-28">
-          <div className="order-3 grid w-full shrink-0 grid-cols-4 gap-2 md:order-1 md:w-[16rem] md:grid-cols-2 md:gap-3">
-            {hallOfFame.map((m, i) => (
-              <div
-                key={m.slug}
-                className="flex h-14 w-full items-center justify-center md:h-24 lg:h-28"
-              >
-                <div
-                  ref={(el) => {
-                    slotRefs.current[i] = el;
-                  }}
-                  className="h-full"
-                  style={{ aspectRatio: String(aspectArr[i]) }}
-                />
-              </div>
-            ))}
+        <div className="absolute inset-0 z-20 flex flex-col items-center gap-2 px-4 pb-20 pt-20 md:flex-row md:items-stretch md:gap-6 lg:gap-8 md:px-6 lg:px-10 md:pb-16 md:pt-28">
+          {/* Left thumbnail deck — adapts to any count by filling a fixed height with auto-rows (cards shrink to fit, no clip) */}
+          <div className="order-3 flex w-full shrink-0 flex-col md:order-1 md:w-[16rem] lg:w-[18rem] md:max-h-[56vh] max-h-[30vh] md:h-[56vh] self-stretch">
+            <div
+              className={`grid h-full w-full min-h-0 gap-2 md:gap-3 grid-cols-4 overflow-hidden auto-rows-fr ${hallOfFame.length > 12 ? "md:grid-cols-3" : "md:grid-cols-2"}`}
+            >
+              {hallOfFame.map((m, i) => (
+                <div key={m.slug} className="flex min-h-0 w-full h-full items-center justify-center">
+                  <div
+                    ref={(el) => {
+                      slotRefs.current[i] = el;
+                    }}
+                    className="h-full max-h-full"
+                    style={{ aspectRatio: String(aspectArr[i]) }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           <div ref={infoRef} className="relative order-2 max-w-md flex-1 text-center opacity-0 md:order-2 md:text-left">
