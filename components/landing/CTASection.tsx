@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { warmLearnAuth } from "@/lib/warmLearnAuth";
 
 export default function CTASection() {
   return (
@@ -46,7 +47,9 @@ export default function CTASection() {
               </p>
 
               <Link
-                href="/auth"
+                href="https://learn.ronansat.com/auth"
+                onMouseEnter={warmLearnAuth}
+                onFocus={warmLearnAuth}
                 className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-primary px-10 py-5 rounded-xl text-lg font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Create Your Free Account Now

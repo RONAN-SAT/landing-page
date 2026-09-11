@@ -34,6 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* The login entry points navigate cross-origin to the learn app
+            (a Cloudflare Worker). Preconnecting opens the DNS + TLS + TCP
+            connection early so the first click doesn't pay that handshake
+            (~0.35-0.55s measured) on top of the Worker's own startup. The
+            hover-triggered Worker warm-up lives in lib/warmLearnAuth.ts. */}
+        <link rel="preconnect" href="https://learn.ronansat.com" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8623345713052877"
