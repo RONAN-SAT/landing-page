@@ -16,28 +16,64 @@
  *   opaque response for /auth is harmless (it is not used for navigation).
  * - GET, not HEAD: the navigation will be a GET, and some CDN/Worker caches
  *   key by method — warming with the exact shape the click produces.
- * - One-shot per page: once a warm request has been issued, repeated hovers
- *   must not re-fire it (the isolate is either warm or the request is
- *   already in flight).
+ *
+ * TWO DEDUP LAYERS, on purpose:
+ *
+ * 1. In-memory (`warmupStarted`): one request per page load. Repeated hovers
+ *    across the many login entry points must not re-fire it — the isolate is
+ *    either warm or the request is already in flight.
+ * 2. `sessionStorage`: one request per TAB SESSION. Cloudflare keeps a warmed
+ *    isolate alive for a while (minutes), so a visitor who hovers a login
+ *    button, wanders off, closes the tab and comes back later — or browses
+ *    through several landing pages — does not need a second warm-up while the
+ *    previous one is still doing its job. sessionStorage (not localStorage)
+ *   on purpose: a NEW browser session is exactly when the old isolate may
+ *   have been evicted, so a fresh session should warm again.
+ *
  * - `keepalive: false` on purpose: this is a low-priority hint, not data
  *   that must survive the click's navigation away from the page.
+ * - Best-effort by contract: a blocked request, an offline device, a
+ *   locked-down storage or an ad-blocker must never surface an error. Every
+ *   failure path (including the storage read/write) degrades to the
+ *   in-memory layer only.
  */
 
 const LEARN_AUTH_URL = "https://learn.ronansat.com/auth";
+const WARMUP_STORAGE_KEY = "ronansat:learn-auth-warmed";
 
 let warmupStarted = false;
 
+function warmupAlreadyRecordedThisSession(): boolean {
+  try {
+    return window.sessionStorage.getItem(WARMUP_STORAGE_KEY) === "1";
+  } catch {
+    // Private mode / storage disabled / SSR guard — treat as "not warmed".
+    return false;
+  }
+}
+
+function recordWarmupInSession(): void {
+  try {
+    window.sessionStorage.setItem(WARMUP_STORAGE_KEY, "1");
+  } catch {
+    // Storage full or blocked — the in-memory flag still dedups this page.
+  }
+}
+
 export function warmLearnAuth(): void {
-  if (warmupStarted || typeof window === "undefined") {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  if (warmupStarted || warmupAlreadyRecordedThisSession()) {
     return;
   }
 
   warmupStarted = true;
+  recordWarmupInSession();
 
   try {
     void fetch(LEARN_AUTH_URL, { mode: "no-cors", credentials: "omit" }).catch(
-      // Best-effort by contract: a blocked request, an offline device or an
-      // ad-blocker must never surface an unhandled rejection for a hint.
       () => undefined
     );
   } catch {
