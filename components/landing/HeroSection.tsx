@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp, Clock, Target } from "lucide-react";
+import { warmLearnAuth } from "@/lib/warmLearnAuth";
 
 export default function HeroSection() {
   return (
@@ -38,7 +39,9 @@ export default function HeroSection() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
-                href="/auth"
+                href="https://learn.ronansat.com/auth"
+                onMouseEnter={warmLearnAuth}
+                onFocus={warmLearnAuth}
                 className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-700 text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30"
               >
                 Start Free Trial
