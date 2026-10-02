@@ -19,7 +19,8 @@ const bodyFont = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: "Ronan SAT | Break Your Score Ceiling",
-  description: "The most intuitive, beautifully designed SAT study suite on the internet.",
+  description:
+    "The most intuitive, beautifully designed SAT study suite on the internet.",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script src="/brand/favicon.js" defer></script>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8623345713052877"
@@ -41,7 +43,9 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className={`${displayFont.variable} ${bodyFont.variable} antialiased bg-[#f4efe6] text-[#0f0e0e] selection:bg-[#BCCE75] selection:text-[#0f0e0e]`}>
+      <body
+        className={`${displayFont.variable} ${bodyFont.variable} antialiased bg-[#f4efe6] text-[#0f0e0e] selection:bg-[#BCCE75] selection:text-[#0f0e0e]`}
+      >
         {children}
         <Analytics />
       </body>
