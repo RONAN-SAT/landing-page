@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 4000",
-    "build": "next build",
+    "dev": "git submodule update --init brand && next dev --port 4000",
+    "build": "git submodule update --init brand && next build",
     "start": "npx serve@14 out -l 4000",
     "lint": "eslint"
   },
