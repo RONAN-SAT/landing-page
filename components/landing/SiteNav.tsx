@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
+import { warmLearnAuth } from "@/lib/warmLearnAuth";
 
 const classesLinks = [
   { href: "/classes", label: "Classes", sub: "Live SAT classes in English" },
@@ -142,6 +143,8 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
         <Link
           href="https://learn.ronansat.com/auth"
           onClick={onClose}
+          onMouseEnter={warmLearnAuth}
+          onFocus={warmLearnAuth}
           className="block px-5 py-4 font-bold text-sm hover:bg-[#BCCE75] transition-colors"
         >
           Log in / Start Free
@@ -223,12 +226,16 @@ export default function SiteNav({ withBanner = false }: { withBanner?: boolean }
         <div className="hidden md:flex gap-4 items-center">
           <Link
             href="https://learn.ronansat.com/auth"
+            onMouseEnter={warmLearnAuth}
+            onFocus={warmLearnAuth}
             className="font-bold text-sm hover:opacity-70 transition-opacity"
           >
             Log in
           </Link>
           <Link
             href="https://learn.ronansat.com/auth"
+            onMouseEnter={warmLearnAuth}
+            onFocus={warmLearnAuth}
             className="bg-[#0f0e0e] text-[#f4efe6] px-5 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform border-2 border-[#0f0e0e]"
           >
             Start Free
